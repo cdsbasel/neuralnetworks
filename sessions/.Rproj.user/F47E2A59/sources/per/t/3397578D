@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1590475422317.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "724186841",
+    "id" : "3397578D",
+    "lastKnownWriteTime" : 1588665273,
+    "last_content_update" : 1588665273,
+    "path" : "~/Dropbox (2.0)/Work/Software/neuralnetworks/neuralnets/2_Code/helper.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "19,24",
+        "scrollLine" : "15"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 10,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

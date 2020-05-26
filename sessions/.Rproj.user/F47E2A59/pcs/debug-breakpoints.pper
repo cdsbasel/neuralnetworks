@@ -1,0 +1,21 @@
+{
+    "debugBreakpointsState" : {
+        "breakpoints" : [
+            {
+                "editor_line_number" : 100,
+                "editor_state" : 1,
+                "function_name" : "toplevel",
+                "function_steps" : "",
+                "id" : 0,
+                "is_package_breakpoint" : false,
+                "is_pending_debug_completion" : false,
+                "line_number" : 100,
+                "needs_updated_steps" : false,
+                "package_name" : "",
+                "path" : "~/Dropbox (2.0)/Work/Software/neuralnetworks/sessions/FeedForwardWithKeras/riskyprocess.R",
+                "state" : 1,
+                "type" : 1
+            }
+        ]
+    }
+}
