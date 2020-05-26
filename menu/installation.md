@@ -41,7 +41,7 @@ If you do not know how to run this code in R please let us know asap.
 
 ## 4 - Install tensorflow backend
 
-Once packages have installed, run the following line to install the tensorflow backend. 
+Once packages have installed, run the following line to install the tensorflow backend.
 
 <font style="font-family: 'Lucida Console', Monaco, monospace;">
 keras::install_keras()
