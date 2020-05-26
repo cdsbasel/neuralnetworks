@@ -16,14 +16,14 @@ title: Schedule & Materials
   </tr>
   <tr>
     <td style="padding-right:6px;padding-bottom:6px">1400-1500</td>
-    <td style="padding-right:6px;padding-bottom:6px">Intro to neural networks</td>
+    <td style="padding-right:6px;padding-bottom:6px">Intro</td>
     <td style="padding-right:6px;padding-bottom:6px">
       <a href="../sessions/Intro2NN/Intro2NN.html">slides</a>
     </td>
   </tr>
   <tr>
     <td style="padding-right:6px;padding-bottom:6px">1500-1545</td>
-    <td style="padding-right:6px;padding-bottom:6px">Feed forward networks with Keras</td>
+    <td style="padding-right:6px;padding-bottom:6px">Deep feedforward</td>
     <td style="padding-right:6px;padding-bottom:6px">
       <a href="../sessions/Intro2NN/Intro2NN.html">slides</a>
     </td>
@@ -35,9 +35,9 @@ title: Schedule & Materials
   </tr>
   <tr>
     <td style="padding-right:6px;padding-bottom:6px">1615-1745</td>
-    <td style="padding-right:6px;padding-bottom:6px">Feed forward networks with Keras pt. 2</td>
+    <td style="padding-right:6px;padding-bottom:6px">Deep feedforward II</td>
     <td style="padding-right:6px;padding-bottom:6px">
-      <a href="../sessions/Intro2NN/Intro2NN.html">practical</a>
+      <a href="../sessions/Intro2NN/Intro2NN.html">R practical</a>
     </td>
   </tr>
   <tr>
@@ -61,30 +61,30 @@ title: Schedule & Materials
   </tr>
   <tr>
     <td style="padding-right:6px;padding-bottom:6px">0900-0930</td>
-    <td style="padding-right:6px;padding-bottom:6px">(Auto-)encoders with keras</td>
+    <td style="padding-right:6px;padding-bottom:6px">Representations</td>
     <td style="padding-right:6px;padding-bottom:6px">
       <a href="../sessions/Intro2NN/Intro2NN.html">slides</a>
     </td>
   </tr>
   <tr>
     <td style="padding-right:6px;padding-bottom:6px">0930-1030</td>
-    <td style="padding-right:6px;padding-bottom:6px">(Auto-)encoders with keras pt. 2</td>
+    <td style="padding-right:6px;padding-bottom:6px">Representations II </td>
     <td style="padding-right:6px;padding-bottom:6px">
-      <a href="../sessions/Intro2NN/Intro2NN.html">practical</a>
+      <a href="../sessions/Intro2NN/Intro2NN.html">R practical</a>
     </td>
   </tr>  
   <tr>
     <td style="padding-right:6px;padding-bottom:6px">1100-1130</td>
-    <td style="padding-right:6px;padding-bottom:6px">Hopfield networks</td>
+    <td style="padding-right:6px;padding-bottom:6px">Cognitive models</td>
     <td style="padding-right:6px;padding-bottom:6px">
       <a href="../sessions/Intro2NN/Intro2NN.html">slides</a>
     </td>
   </tr>
   <tr>
     <td style="padding-right:6px;padding-bottom:6px">1130-1230</td>
-    <td style="padding-right:6px;padding-bottom:6px">Hopfield networks pt. 2</td>
+    <td style="padding-right:6px;padding-bottom:6px">Cognitive models</td>
     <td style="padding-right:6px;padding-bottom:6px">
-      <a href="../sessions/Intro2NN/Intro2NN.html">practical</a>
+      <a href="../sessions/Intro2NN/Intro2NN.html">R practical</a>
     </td>
   </tr>
   <tr>
