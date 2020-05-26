@@ -82,7 +82,7 @@ title: Schedule & Materials
   </tr>
   <tr>
     <td style="padding-right:6px;padding-bottom:6px">1130-1230</td>
-    <td style="padding-right:6px;padding-bottom:6px">Cognitive models</td>
+    <td style="padding-right:6px;padding-bottom:6px">Cognitive models II</td>
     <td style="padding-right:6px;padding-bottom:6px">
       <a href="../sessions/Intro2NN/Intro2NN.html">R practical</a>
     </td>
