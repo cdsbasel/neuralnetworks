@@ -18,14 +18,14 @@ title: Schedule & Materials
     <td style="padding-right:6px;padding-bottom:6px">1400-1500</td>
     <td style="padding-right:6px;padding-bottom:6px">Intro</td>
     <td style="padding-right:6px;padding-bottom:6px">
-      <a href="../sessions/Intro2NN/Intro2NN.html">slides</a>
+      <a href="../sessions/Intro/Intro.html">slides</a>
     </td>
   </tr>
   <tr>
     <td style="padding-right:6px;padding-bottom:6px">1500-1545</td>
     <td style="padding-right:6px;padding-bottom:6px">Deep feedforward</td>
     <td style="padding-right:6px;padding-bottom:6px">
-      <a href="../sessions/DeepFeedForward/DeepFeedForward.html"><slides</a>
+      <a href="../sessions/DeepFeedForward/DeepFeedForward.html">slides</a>
     </td>
   </tr>  
   <tr>
