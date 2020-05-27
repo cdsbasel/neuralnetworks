@@ -16,7 +16,8 @@ neuralnets_package_installation <- function() {
     
     # keras --------------
     
-    "keras"
+    "keras",
+    'PCSinR'
 
   )
 
