@@ -377,8 +377,12 @@ history &lt;- net %&gt;% fit(
 <pre class="r"><code># evaluate
 net %&gt;% evaluate(XX, XX, verbose = 0)</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li>The network is slightly worse than in traning, but still pretty good given that guessing performance is only <code>10%</code> accuracy. This, again, is very characteristic. In machine learning “simple” models often get a long way towards the desired level of performance. Though, one might question whether a model with 750 parameters can still be considered “simple”.</li>
+<li><p>The network is slightly worse than in traning, but still pretty good given that guessing performance is only <code>10%</code> accuracy. This, again, is very characteristic. In machine learning “simple” models often get a long way towards the desired level of performance. Though, one might question whether a model with 750 parameters can still be considered “simple”.</p></li>
+<li><p>Compare the predictions made by the network with the actual fashion labels. Do you note any patterns? Can you maybe understand the errors that the network has made.</p></li>
 </ol>
+<pre class="r"><code># compare predictions to truth
+pred = net %&gt;% predict_classes(fashion_test_images_serialized)
+table(fashion_labels[fashion_test_items+1], fashion_labels[pred+1])</code></pre>
 </div>
 <div id="h---build-evaluate-deeper-network" class="section level3">
 <h3>H - Build &amp; evaluate deeper network</h3>
@@ -471,7 +475,7 @@ summary(crazycomplexnet)</code></pre>
 <h3>Cheatsheet</h3>
 <figure>
 <center>
-<a href="https://github.com/rstudio/cheatsheets/raw/master/keras.pdf"> <img src="image/keras_cheat" alt="Trulli" style="width:70%"></a><br> <font style="font-size:10px"> from <a href= "https://rstudio.com/resources/cheatsheets/">github.com/rstudio</a></font>
+<a href="https://github.com/rstudio/cheatsheets/raw/master/keras.pdf"> <img src="image/keras_cheat.png" alt="Trulli" style="width:70%"></a><br> <font style="font-size:10px"> from <a href= "https://rstudio.com/resources/cheatsheets/">github.com/rstudio</a></font>
 </figure>
 </div>
 </div>

@@ -1,16 +1,16 @@
 ---
 title: "Deep feedforward"
-author: "<a href='https://cdsbasel.github.io/dataanalytics/'>
+author: "<a href='https://cdsbasel.github.io/neuralnetworks/'>
     Introduction to Neural Networks
   </a>
   <br>
-  <a href='https://cdsbasel.github.io/dataanalytics/menu/materials.html'>
+  <a href='https://cdsbasel.github.io/neuralnetworks/menu/materials.html'>
     <i class='fas fa-clock' style='font-size:.9em;'></i>
   </a>&#8239; 
-  <a href='https://cdsbasel.github.io/dataanalytics/'>
+  <a href='https://cdsbasel.github.io/neuralnetworks/'>
     <i class='fas fa-home' style='font-size:.9em;' ></i>
   </a>&#8239;
-  <a href='mailto:rui.mata@unibas.ch'>
+  <a href='mailto:dirk.wulff@unibas.ch'>
     <i class='fas fa-envelope' style='font-size: .9em;'></i>"
 date: "May 2020"
 output:

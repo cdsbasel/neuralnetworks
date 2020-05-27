@@ -503,7 +503,7 @@ summary(crazycomplexnet)
 <figure>
 <center>
 <a href="https://github.com/rstudio/cheatsheets/raw/master/keras.pdf">
-  <img src="image/keras_cheat" alt="Trulli" style="width:70%"></a><br>
+  <img src="image/keras_cheat.png" alt="Trulli" style="width:70%"></a><br>
  <font style="font-size:10px"> from <a href= "https://rstudio.com/resources/cheatsheets/">github.com/rstudio</a></font>
 </figure>
 

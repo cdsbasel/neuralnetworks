@@ -1,16 +1,16 @@
 ---
 title: "Neural Networks"
-author: "<a href='https://cdsbasel.github.io/dataanalytics/'>
+author: "<a href='https://cdsbasel.github.io/neuralnetworks/'>
     Introduction to Neural Networks
   </a>
   <br>
-  <a href='https://cdsbasel.github.io/dataanalytics/menu/materials.html'>
+  <a href='https://cdsbasel.github.io/neuralnetworks/menu/materials.html'>
     <i class='fas fa-clock' style='font-size:.9em;'></i>
   </a>&#8239; 
-  <a href='https://cdsbasel.github.io/dataanalytics/'>
+  <a href='https://cdsbasel.github.io/neuralnetworks/'>
     <i class='fas fa-home' style='font-size:.9em;' ></i>
   </a>&#8239;
-  <a href='mailto:rui.mata@unibas.ch'>
+  <a href='mailto:dirk.wulff@unibas.ch'>
     <i class='fas fa-envelope' style='font-size: .9em;'></i>"
 date: "May 2020"
 output:
@@ -437,7 +437,7 @@ $$\large w_{t+1} = w_t + r \cdot L_i \cdot x_{ji}$$
 
 <ul>
   <li class="m1"><span>Treat the neural network as an <high>as-if model</high> and study the inferred computations.</span></li><br><br><br><br>
-  <li class="m2"><span>Use the neural network to <high>extract meaningful representations from the environment</high>.</span></li>
+  <li class="m2"><span>Use the neural network to <high>extract meaningful representations</high> from the environment.</span></li>
 </ul>
 
 ]
