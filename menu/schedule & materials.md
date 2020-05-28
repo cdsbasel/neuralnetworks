@@ -5,9 +5,7 @@ title: Schedule & Materials
 
 ## R project
 
-<a href="https://www.dropbox.com/s/ded0c40nq89g21q/neuralnets.zip?dl=1"><b>Download</b></a>
-
-<br>
+<p style="padding-bottom:20px"><a href="https://www.dropbox.com/s/ded0c40nq89g21q/neuralnets.zip?dl=1"><b>Download</b></a></p>
 
 ## Day 1
 
