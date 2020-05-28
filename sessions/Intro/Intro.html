@@ -260,7 +260,7 @@ class: middle, center
   &lt;li class="m2"&gt;&lt;span&gt;Loss is used as a &lt;high&gt;means to update the weights&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-`$$L_i(w_t) = y_i - w_t^\intercal x_i$$`
+`$$L_i(w_t) = y_i - \sigma(w_t^\intercal x_i)$$`
 
 ]
 
@@ -285,7 +285,7 @@ class: middle, center
 
 &lt;p style="padding-top:20px"&gt;&lt;u&gt;Weight updating&lt;/u&gt;&lt;/p&gt;
 
-`$$\large w_{t+1} = w_t + r \cdot L_i \cdot x_{ji}$$`
+`$$\large w^{t+1}_j = w^t_{j} + r \cdot L_i \cdot x_{ji}$$`
 
 ]
 

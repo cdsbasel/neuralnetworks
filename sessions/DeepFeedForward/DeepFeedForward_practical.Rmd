@@ -213,7 +213,7 @@ summary(net)
 
 1. Use `compile()` to compile the network. You will need to specify at least two arguments: `optimizer` and `loss`. Think about what we've used in the presentation. Would the same values make sense here? 
 
-```{r, echo = TRUE}
+```{r, echo = TRUE, eval = F}
 # loss, optimizers, & metrics
 net %>% compile(
   optimizer = 'XX', 
@@ -237,7 +237,7 @@ net %>% compile(
 
 1. You've come to the point where the magic happens. Fit the network using `fit()`. Specify, the arguments `x`, `y`, `batch_size`, and `epoch`. Think for a moment, what the appropriate values for these arguments could be.   
 
-```{r, echo = TRUE}
+```{r, echo = TRUE, eval = F}
 # loss, optimizers, & metrics
 history <- net %>% fit(
   x = XX, 
@@ -249,7 +249,7 @@ history <- net %>% fit(
 
 2. The arguments `x` and `y` specify the training features and training criterion, respectively, so `x = fashion_train_images_serialized` and `y = fashion_train_items_onehot`. The arguments `batch_size` and `epochs` control how often the weights will be updated and for how many iterations of the data set. Useful (and somewhat arbitrary) values are `batch_size = 32` and `epochs = 10`. Use these values and then run the chunk.     
 
-```{r, echo = TRUE}
+```{r}
 # fit the network
 history <- net %>% fit(
   x = fashion_train_images_serialized, 

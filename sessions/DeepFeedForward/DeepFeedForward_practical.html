@@ -355,16 +355,7 @@ history &lt;- net %&gt;% fit(
   epochs = XX
   )</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li>The arguments <code>x</code> and <code>y</code> specify the training features and training criterion, respectively, so <code>x = fashion_train_images_serialized</code> and <code>y = fashion_train_items_onehot</code>. The arguments <code>batch_size</code> and <code>epochs</code> control how often the weights will be updated and for how many iterations of the data set. Useful (and somewhat arbitrary) values are <code>batch_size = 32</code> and <code>epochs = 10</code>. Use these values and then run the chunk.</li>
-</ol>
-<pre class="r"><code># fit the network
-history &lt;- net %&gt;% fit(
-  x = fashion_train_images_serialized, 
-  y = fashion_train_items_onehot,
-  batch_size = 32,
-  epochs = 10
-  )</code></pre>
-<ol start="3" style="list-style-type: decimal">
+<li><p>The arguments <code>x</code> and <code>y</code> specify the training features and training criterion, respectively, so <code>x = fashion_train_images_serialized</code> and <code>y = fashion_train_items_onehot</code>. The arguments <code>batch_size</code> and <code>epochs</code> control how often the weights will be updated and for how many iterations of the data set. Useful (and somewhat arbitrary) values are <code>batch_size = 32</code> and <code>epochs = 10</code>. Use these values and then run the chunk.</p></li>
 <li><p>The <code>fit</code> function automatically provides with useful information on the progression of fit indices. You can additionally use the <code>history</code> object to get the same illustration to create a <code>ggplot</code>. Run <code>plot(history) + theme_minimal()</code>. When you inspect the plot, what tells you that the network indeed has learned? And how good is the final performance of the network?</p></li>
 <li><p>The network has learned, which can be gathered by the decrease in <code>loss</code> and the increase in <code>accuracy</code>. The non-linear pattern is very characteristic, almost always most of the gains are achieved in the first epoch or two. To get accurate values on the final performance you can simply print <code>history</code>. What do you think, how well will this network perform in predicting fashion items out-of-sample? Find out in the next section.</p></li>
 </ol>
