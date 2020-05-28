@@ -7,6 +7,7 @@ title: Schedule & Materials
 
 <a href="https://www.dropbox.com/s/ded0c40nq89g21q/neuralnets.zip?dl=1"><b>Download</b></a>
 
+<br>
 
 ## Day 1
 
