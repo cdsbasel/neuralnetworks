@@ -53,10 +53,7 @@ layout: true
 # Neural processing in the brain
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;Deep feedforward networks have &lt;high&gt;"many" hidden layers&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
-  &lt;li class="m2"&gt;&lt;span&gt;The hidden layers learn &lt;high&gt;useful representations of the inputs&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
-  &lt;li class="m3"&gt;&lt;span&gt;The deeper the layer, the &lt;high&gt;more abstract the representation&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
-  &lt;li class="m4"&gt;&lt;span&gt;Useful does &lt;high&gt;not mean intuitive&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Efforts are made to build neural network models that &lt;high&gt;mimick the brain's architectural properties&lt;/high&gt; concerning, e.g., the visual system.&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 ]
@@ -68,6 +65,420 @@ layout: true
 
 &lt;p align = "center"&gt;
 &lt;img src="image/brain.png"&gt;&lt;br&gt;
+&lt;font style="font-size:10px"&gt;from &lt;a href="https://neuwritesd.org/2015/10/22/deep-neural-networks-help-us-read-your-mind/"&gt;neuwritesd.org&lt;/a&gt;, see &lt;a href="https://www.pnas.org/content/111/23/8619"&gt;this&lt;/a&gt;&lt;/font&gt;
+&lt;/p&gt;
+
+]
+
+
+---
+
+.pull-left3[
+
+# Semantic space
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Many cognitive models build on some for of a &lt;high&gt;mnemonic representation of words&lt;/high&gt; and their meaning, which can be apprximated using network-based vector space models.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;&lt;high&gt;Tasks&lt;/high&gt; linked to vector space models:&lt;/span&gt;&lt;/li&gt;
+  &lt;ul&gt;
+      &lt;li&gt;&lt;span&gt;Verbal fluency&lt;/span&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;Similarity ratings&lt;/span&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;Paired associated learning&lt;/span&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;Free recall&lt;/span&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;Verbal reasoning&lt;/span&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;etc.&lt;/span&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/ul&gt;
+
+]
+
+
+.pull-right6[
+
+&lt;p align = "center"&gt;
+&lt;img src="image/wordspace.png" height=600px&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+.pull-left3[
+
+# Walks in semantic space
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;A popular idea is that retrieval from (semantic) memory acts like a &lt;high&gt;random walk through the word vector space&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;&lt;high&gt;Verbal fluency&lt;/high&gt; sequences are consistent with this notion barring the occasional jump.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+]
+
+
+.pull-right6[
+
+&lt;p align = "center"&gt;
+&lt;img src="image/wordspace1.png" height=600px&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+.pull-left3[
+
+
+# Walks in semantic space
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;A popular idea is that retrieval from (semantic) memory acts like a &lt;high&gt;random walk through the word vector space&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;&lt;high&gt;Verbal fluency&lt;/high&gt; sequences are consistent with this notion barring the occasional jump.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+]
+
+
+.pull-right6[
+
+&lt;p align = "center"&gt;
+&lt;img src="image/wordspace2.png" height=600px&gt;
+&lt;/p&gt;
+
+]
+
+
+---
+
+.pull-left3[
+
+# Walks in semantic space
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;A popular idea is that retrieval from (semantic) memory acts like a &lt;high&gt;random walk through the word vector space&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;&lt;high&gt;Verbal fluency&lt;/high&gt; sequences are consistent with this notion barring the occasional jump.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+]
+
+
+.pull-right6[
+
+&lt;p align = "center"&gt;
+&lt;img src="image/wordspace3.png" height=600px&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+.pull-left3[
+
+# Walks in semantic space
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;A popular idea is that retrieval from (semantic) memory acts like a &lt;high&gt;random walk through the word vector space&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;&lt;high&gt;Verbal fluency&lt;/high&gt; sequences are consistent with this notion barring the occasional jump.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+]
+
+
+.pull-right6[
+
+&lt;p align = "center"&gt;
+&lt;img src="image/wordspace3.png" height=600px&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+.pull-left3[
+
+# Hopfield
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Hopfield networks are a form of recurrent neural network, that can be used as &lt;high&gt;models of recognition&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;They can be using Hebbian learning: &lt;high&gt;fire together, wire together&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+`$$\Large \Delta w_{ij}=\eta \cdot a_{i}\cdot a_{j}$$`
+
+]
+
+
+.pull-right6[
+
+&lt;br&gt;&lt;br&gt;
+
+&lt;p align = "center"&gt;
+&lt;img src="image/hopfield.png" height=460px&gt;
+&lt;/p&gt;
+
+]
+
+
+---
+
+.pull-left3[
+
+# Hopfield
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Hopfield networks are a form of recurrent neural network, that can be used as &lt;high&gt;models of recognition&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;They can be using Hebbian learning: &lt;high&gt;fire together, wire together&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+`$$\Large \Delta w_{ij}=\eta \cdot a_{i}\cdot a_{j}$$`
+
+]
+
+
+.pull-right6[
+
+&lt;br&gt;&lt;br&gt;
+
+&lt;p align = "center"&gt;
+&lt;img src="image/hopfield1.png" height=460px&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+.pull-left3[
+
+# Hopfield
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Hopfield networks are a form of recurrent neural network, that can be used as &lt;high&gt;models of recognition&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;They can be using Hebbian learning: &lt;high&gt;fire together, wire together&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+`$$\Large \Delta w_{ij}=\eta \cdot a_{i}\cdot a_{j}$$`
+
+]
+
+
+.pull-right6[
+
+&lt;br&gt;&lt;br&gt;
+
+&lt;p align = "center"&gt;
+&lt;img src="image/hopfield2.png" height=460px&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+.pull-left3[
+
+# Hopfield
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Hopfield networks are a form of recurrent neural network, that can be used as &lt;high&gt;models of recognition and associative memory&lt;/high&gt; .&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;They can be using Hebbian learning: &lt;high&gt;fire together, wire together&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+`$$\Large \Delta w_{ij}=\eta \cdot a_{i}\cdot a_{j}$$`
+
+]
+
+
+.pull-right6[
+
+&lt;br&gt;&lt;br&gt;
+
+&lt;p align = "center"&gt;
+&lt;img src="image/hopfield3.png" height=460px&gt;
+&lt;/p&gt;
+
+]
+
+
+---
+
+.pull-left3[
+
+# Cognitive consistency
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Recursive networks can be used to predict the dynamics and outcomes of &lt;high&gt;consistency-driven cognitive reasoning&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Domains:&lt;/span&gt;&lt;/li&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;span&gt;Dissonance theory&lt;/span&gt;&lt;/li&gt;  
+    &lt;li&gt;&lt;span&gt;Opinion formation&lt;/span&gt;&lt;/li&gt; 
+    &lt;li&gt;&lt;span&gt;Inference&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;Decision making&lt;/span&gt;&lt;/li&gt; 
+  &lt;/ul&gt;
+&lt;/ul&gt;
+
+]
+
+
+.pull-right6[
+
+&lt;br&gt;&lt;br&gt;
+
+&lt;p align = "center"&gt;
+&lt;img src="image/fest1.png" height=460px&gt;&lt;br&gt;
+&lt;font style="font-size:10px"&gt;from &lt;a href="https://journals.sagepub.com/doi/10.1207/s15327957pspr0101_3"&gt;Read, Vanman, &amp; Miller (1997)&lt;/a&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+.pull-left3[
+
+# Cognitive consistency
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Recursive networks can be used to predict the dynamics and outcomes of &lt;high&gt;consistency-driven cognitive reasoning&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Domains:&lt;/span&gt;&lt;/li&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;span&gt;Dissonance theory&lt;/span&gt;&lt;/li&gt;  
+    &lt;li&gt;&lt;span&gt;Opinion formation&lt;/span&gt;&lt;/li&gt; 
+    &lt;li&gt;&lt;span&gt;Inference&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;Decision making&lt;/span&gt;&lt;/li&gt; 
+  &lt;/ul&gt;
+&lt;/ul&gt;
+
+]
+
+
+.pull-right6[
+
+&lt;br&gt;&lt;br&gt;
+
+&lt;p align = "center"&gt;
+&lt;img src="image/fest2.png" height=460px&gt;&lt;br&gt;
+&lt;font style="font-size:10px"&gt;from &lt;a href="https://journals.sagepub.com/doi/10.1207/s15327957pspr0101_3"&gt;Read, Vanman, &amp; Miller (1997)&lt;/a&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+.pull-left3[
+
+# Cognitive consistency
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Recursive networks can be used to predict the dynamics and outcomes of &lt;high&gt;consistency-driven cognitive reasoning&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Domains:&lt;/span&gt;&lt;/li&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;span&gt;Dissonance theory&lt;/span&gt;&lt;/li&gt;  
+    &lt;li&gt;&lt;span&gt;Opinion formation&lt;/span&gt;&lt;/li&gt; 
+    &lt;li&gt;&lt;span&gt;Inference&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;Decision making&lt;/span&gt;&lt;/li&gt; 
+  &lt;/ul&gt;
+&lt;/ul&gt;
+
+]
+
+
+.pull-right6[
+
+&lt;br&gt;&lt;br&gt;
+
+&lt;p align = "center"&gt;
+&lt;img src="image/socpsy1.png" height=460px&gt;&lt;br&gt;
+&lt;font style="font-size:10px"&gt;from &lt;a href="https://journals.sagepub.com/doi/10.1207/s15327957pspr0101_3"&gt;Read, Vanman, &amp; Miller (1997)&lt;/a&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+.pull-left3[
+
+# Cognitive consistency
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Recursive networks can be used to predict the dynamics and outcomes of &lt;high&gt;consistency-driven cognitive reasoning&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Domains:&lt;/span&gt;&lt;/li&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;span&gt;Dissonance theory&lt;/span&gt;&lt;/li&gt;  
+    &lt;li&gt;&lt;span&gt;Opinion formation&lt;/span&gt;&lt;/li&gt; 
+    &lt;li&gt;&lt;span&gt;Inference&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;Decision making&lt;/span&gt;&lt;/li&gt; 
+  &lt;/ul&gt;
+&lt;/ul&gt;
+
+]
+
+
+.pull-right6[
+
+&lt;br&gt;&lt;br&gt;
+
+&lt;p align = "center"&gt;
+&lt;img src="image/socpsy1.png" height=460px&gt;&lt;br&gt;
+&lt;font style="font-size:10px"&gt;from &lt;a href="https://journals.sagepub.com/doi/10.1207/s15327957pspr0101_3"&gt;Read, Vanman, &amp; Miller (1997)&lt;/a&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+.pull-left3[
+
+# Cognitive consistency
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Recursive networks can be used to predict the dynamics and outcomes of &lt;high&gt;consistency-driven cognitive reasoning&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Domains:&lt;/span&gt;&lt;/li&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;span&gt;Dissonance theory&lt;/span&gt;&lt;/li&gt;  
+    &lt;li&gt;&lt;span&gt;Opinion formation&lt;/span&gt;&lt;/li&gt; 
+    &lt;li&gt;&lt;span&gt;Inference&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;Decision making&lt;/span&gt;&lt;/li&gt; 
+  &lt;/ul&gt;
+&lt;/ul&gt;
+
+]
+
+
+.pull-right6[
+
+&lt;br&gt;&lt;br&gt;
+
+&lt;p align = "center"&gt;
+&lt;img src="image/glöck.png" height=460px&gt;&lt;br&gt;
+&lt;font style="font-size:10px"&gt;from &lt;a href="https://www.econstor.eu/bitstream/10419/26939/1/572287593.PDF"&gt;Glöckner &amp; Betsch (2008)&lt;/a&gt;
+&lt;/p&gt;
+
+]
+
+---
+
+.pull-left3[
+
+# Cognitive consistency
+
+&lt;ul&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Recursive networks can be used to predict the dynamics and outcomes of &lt;high&gt;consistency-driven cognitive reasoning&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Domains:&lt;/span&gt;&lt;/li&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;span&gt;Dissonance theory&lt;/span&gt;&lt;/li&gt;  
+    &lt;li&gt;&lt;span&gt;Opinion formation&lt;/span&gt;&lt;/li&gt; 
+    &lt;li&gt;&lt;span&gt;Inference&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;Decision making&lt;/span&gt;&lt;/li&gt; 
+  &lt;/ul&gt;
+&lt;/ul&gt;
+
+]
+
+
+.pull-right6[
+
+&lt;br&gt;&lt;br&gt;
+
+&lt;p align = "center"&gt;
+&lt;img src="image/glöck2.png" height=460px&gt;&lt;br&gt;
+&lt;font style="font-size:10px"&gt;from &lt;a href="https://www.econstor.eu/bitstream/10419/32204/1/605761744.pdf"&gt;Glöckner &amp; Herbold(2008)&lt;/a&gt;
 &lt;/p&gt;
 
 ]
@@ -77,7 +488,7 @@ layout: true
 
 class: middle, center
 
-&lt;h1&gt;&lt;a href=https://cdsbasel.github.io/dataanalytics/menu/materials.html&gt;Materials&lt;/a&gt;&lt;/h1&gt;
+&lt;h1&gt;&lt;a href="https://cdsbasel.github.io/neuralnetworks/menu/schedule &amp; materials.html"&gt;Materials&lt;/a&gt;&lt;/h1&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

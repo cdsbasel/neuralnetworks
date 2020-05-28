@@ -64,36 +64,36 @@ title: Schedule & Materials
     <td style="padding-right:6px;padding-bottom:6px"><b>Materials</b></td>
   </tr>
   <tr>
-    <td style="padding-right:6px;padding-bottom:6px">0900-0930</td>
+    <td style="padding-right:6px;padding-bottom:6px">1230-1300</td>
+    <td style="padding-right:6px;padding-bottom:6px">Wrap up</td>
+    <td style="padding-right:6px;padding-bottom:6px"></td>
+  </tr>
+  <tr>
+    <td style="padding-right:6px;padding-bottom:6px">0930-1030</td>
     <td style="padding-right:6px;padding-bottom:6px">Representations</td>
     <td style="padding-right:6px;padding-bottom:6px">
       <a href="../sessions/Representation/Representation.html">slides</a>
     </td>
   </tr>
   <tr>
-    <td style="padding-right:6px;padding-bottom:6px">0930-1030</td>
+    <td style="padding-right:6px;padding-bottom:6px">1100-1215</td>
     <td style="padding-right:6px;padding-bottom:6px">Representations II </td>
     <td style="padding-right:6px;padding-bottom:6px">
       <a href="../sessions/Representation/Representation_practical.html">R practical</a>
     </td>
   </tr>  
   <tr>
-    <td style="padding-right:6px;padding-bottom:6px">1100-1130</td>
+    <td style="padding-right:6px;padding-bottom:6px">1215-1245</td>
     <td style="padding-right:6px;padding-bottom:6px">Cognitive models</td>
+    <td style="padding-right:6px;padding-bottom:6px">
+      <a href="../sessions/Cognitive/Cognitive.html">slides</a>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding-right:6px;padding-bottom:6px">1245-1300</td>
+    <td style="padding-right:6px;padding-bottom:6px">Wrap up</td>
     <td style="padding-right:6px;padding-bottom:6px">
       <a href="">slides</a>
     </td>
   </tr>
-  <tr>
-    <td style="padding-right:6px;padding-bottom:6px">1130-1230</td>
-    <td style="padding-right:6px;padding-bottom:6px">Cognitive models II</td>
-    <td style="padding-right:6px;padding-bottom:6px">
-      <a href="">R practical</a>
-    </td>
-  </tr>
-  <tr>
-    <td style="padding-right:6px;padding-bottom:6px">1230-1300</td>
-    <td style="padding-right:6px;padding-bottom:6px">Wrap up</td>
-    <td style="padding-right:6px;padding-bottom:6px"></td>
-  </tr>  
 </table>

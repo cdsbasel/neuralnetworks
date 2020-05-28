@@ -55,16 +55,125 @@ add_path = function(x){
   cols = colorRampPalette(c('black','steelblue'))(length(x))
   points(pos, pch = 16, cex=.5, col = cols)
   for(i in 1:(length(x)-1)){
-    lines(c(pos[i,1],pos[i+1,1]),c(pos[i,2],pos[i+1,2]), col=cols[i], lwd=.5) 
+    lines(c(pos[i,1],pos[i+1,1]),c(pos[i,2],pos[i+1,2]), col=cols[i], lwd=1) 
     }
   }
 
-
+png('Cognitive/image/wordspace.png',width=6,height=6,res=300,unit='in')
 plot_cosine_mds(cos_vec, rownames(cos_vec))
-add_path(fluency[[1]][1:10])
+dev.off()
+
+png('Cognitive/image/wordspace1.png',width=6,height=6,res=300,unit='in')
+plot_cosine_mds(cos_vec, rownames(cos_vec))
+add_path(fluency[[1]])
+dev.off()
+
+png('Cognitive/image/wordspace2.png',width=6,height=6,res=300,unit='in')
+plot_cosine_mds(cos_vec, rownames(cos_vec))
+add_path(fluency[[2]])
+dev.off()
+
+png('Cognitive/image/wordspace3.png',width=6,height=6,res=300,unit='in')
+plot_cosine_mds(cos_vec, rownames(cos_vec))
+add_path(fluency[[3]])
+dev.off()
 
 
 
+require(tidyverse)
+require(keras)
+
+digit = readRDS('Representation/1_Data/digit.RDS')
+
+# assign 
+c(img_train, digit_train) %<-% digit$train
+
+# reshape & rescale images
+img_train <- array_reshape(img_train, c(nrow(img_train), 784))
+img_train <- img_train / 255
+
+
+
+
+
+to_img = function(img_long){
+  if(length(img_long) %% 1 != 0) stop('image must convertible to square')
+  matrix(img_long, 
+         nrow=sqrt(length(img_long)), 
+         ncol=sqrt(length(img_long)), 
+         byrow = T)
+}
+
+norm = function(x) {x = x + abs(min(x)) ; x / max(x)}
+
+show_image = function(img_long){
+  img = norm(to_img(img_long))
+  img <- t(apply(img, 2, rev))
+  par(mar=c(0, 0, 0, 0))
+  image(1:nrow(img), 1:ncol(img), img, 
+        col = gray((0:255)/255), 
+        xaxt = 'n', yaxt = 'n')
+}
+
+
+signify = function(x) sign(x - .3)
+
+img1 = signify(img_train[1,])
+img2 = signify(img_train[2,])
+
+png('Cognitive/image/5.png',width=3,height=3,res=300,unit='in')
+show_image(img1)
+dev.off()
+
+png('Cognitive/image/0.png',width=3,height=3,res=300,unit='in')
+show_image(img2)
+dev.off()
+
+
+w = img1 %*% t(img1) + img2 %*% t(img2)
+
+img1_noise = signify(img1 + rnorm(length(img1), 0,10))
+img2_noise = signify(img1 + rnorm(length(img1), 0,10))
+
+png('Cognitive/image/0.png',width=3,height=3,res=300,unit='in')
+
+show_image(img1_noise)
+show_image(signify(img1_noise %*% w))
+
+show_image(recov(img1_noise, 3))
+
+show_image(signify(signify(img %*% w) %*% w))
+
+
+recov = function(x, n = 1) {
+  for(i in 1:n){
+    x = signify(x %*% w)
+    }
+  x
+  }
+
+i = 8
+show_image(signify(img_train[i,]))
+recov = signify(img_train[i,] %*% w)
+show_image(-recov)
+for(i in 1:3) recov = sign(recov %*% w)
+show_image(-recov)
+
+
+
+
+
+a = w %*% img_train[1,]
+
+
+show_image(img_train[1,])
+show_image(w %*% img_train[1,])
+
+sigmoid = function(x) 1 / (1 + exp(-x))
+
+
+for(i in 1:4) recov = sign(w %*% recov)
+show_image(recov)
 
 
 
