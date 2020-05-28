@@ -64,8 +64,8 @@ title: Schedule & Materials
     <td style="padding-right:6px;padding-bottom:6px"><b>Materials</b></td>
   </tr>
   <tr>
-    <td style="padding-right:6px;padding-bottom:6px">1230-1300</td>
-    <td style="padding-right:6px;padding-bottom:6px">Wrap up</td>
+    <td style="padding-right:6px;padding-bottom:6px">0900-0930</td>
+    <td style="padding-right:6px;padding-bottom:6px">Recap</td>
     <td style="padding-right:6px;padding-bottom:6px"></td>
   </tr>
   <tr>
