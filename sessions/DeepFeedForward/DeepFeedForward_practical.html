@@ -254,7 +254,7 @@ source(&quot;2_Code/helper.R&quot;)</code></pre>
 <div id="b---data-preprocessing" class="section level3">
 <h3>B - Data preprocessing</h3>
 <ol style="list-style-type: decimal">
-<li>Before you get started modeling the data using neural networks, some preprocessing neeeds to be done. First, split into its individual elements that is into <code>images</code> and <code>items</code> separately for training and test. Use the code below.</li>
+<li>Before you get started modeling the data using neural networks, some preprocessing needs to be done. First, split into its individual elements that is into <code>images</code> and <code>items</code> separately for training and test. Use the code below.</li>
 </ol>
 <pre class="r"><code># split digit  train
 c(fashion_train_images, fashion_train_items) %&lt;-% fashion$train
@@ -280,7 +280,7 @@ fashion_test_images_serialized &lt;- fashion_test_images_serialized / 255</code>
 fashion_train_items_onehot &lt;- to_categorical(fashion_train_items, 10)
 fashion_test_items_onehot &lt;- to_categorical(fashion_test_items, 10)</code></pre>
 <ol start="6" style="list-style-type: decimal">
-<li>Use <code>head(fashion_train_items_onehot)</code> to inspect the first few rows and compare them to <code>head(fashion_train_items)</code>. Do things lign up?</li>
+<li>Use <code>head(fashion_train_items_onehot)</code> to inspect the first few rows and compare them to <code>head(fashion_train_items)</code>. Do things line up?</li>
 </ol>
 </div>
 <div id="c---illustrate" class="section level3">
@@ -322,7 +322,7 @@ net %&gt;% layer_dense(
   activation = &quot;XX&quot;
   )</code></pre>
 <ol start="3" style="list-style-type: decimal">
-<li><p>The correct soluations are <code>input_shape = 784</code> to specify that there must be<code>784</code> input nodes, one for each pixel, <code>units =  10</code> to specify that there must be 10 different output nodes, and <code>activation = 'softmax'</code> to specify that the final activation should be a probability that sums to <code>1</code> across all output nodes. After you have entered these values, use <code>summary(net)</code> to see the model information.</p></li>
+<li><p>The correct solutions are <code>input_shape = 784</code> to specify that there must be<code>784</code> input nodes, one for each pixel, <code>units =  10</code> to specify that there must be 10 different output nodes, and <code>activation = 'softmax'</code> to specify that the final activation should be a probability that sums to <code>1</code> across all output nodes. After you have entered these values, use <code>summary(net)</code> to see the model information.</p></li>
 <li><p>Take a look at the <code>Param #</code> column in the print out. Why is the number <code>7850</code> rather than <code>7840 = 784 * 10</code>? Any ideas?</p></li>
 <li><p>Yes, <code>keras</code> automatically adds a biases to each node in a layer.</p></li>
 </ol>
@@ -377,7 +377,7 @@ history &lt;- net %&gt;% fit(
 <pre class="r"><code># evaluate
 net %&gt;% evaluate(XX, XX, verbose = 0)</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li><p>The network is slightly worse than in traning, but still pretty good given that guessing performance is only <code>10%</code> accuracy. This, again, is very characteristic. In machine learning “simple” models often get a long way towards the desired level of performance. Though, one might question whether a model with 750 parameters can still be considered “simple”.</p></li>
+<li><p>The network is slightly worse than in training, but still pretty good given that guessing performance is only <code>10%</code> accuracy. This, again, is very characteristic. In machine learning “simple” models often get a long way towards the desired level of performance. Though, one might question whether a model with 750 parameters can still be considered “simple”.</p></li>
 <li><p>Compare the predictions made by the network with the actual fashion labels. Do you note any patterns? Can you maybe understand the errors that the network has made.</p></li>
 </ol>
 <pre class="r"><code># compare predictions to truth
@@ -431,7 +431,7 @@ realdeepnet %&gt;%
 summary(realdeepnet)</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li><p>The number of parameters in network only increased by a factor of 2, because the lion share stems from the weights between the input and the first hidden layer, which remained unchanged. Nonetheless, there is reason to believe that this network fares differently. Try it out using the exact same steps as before.</p></li>
-<li><p>The model did not fare a whole lot better. The fit performance increased a bit, but the predictive accuracy more or less remained constant. Fit the model again. To do this you can simply run the fit function again, which will lead to a continuation of training from where training ended before. After traning has finished, evaluate the predictive accuracy again.</p></li>
+<li><p>The model did not fare a whole lot better. The fit performance increased a bit, but the predictive accuracy more or less remained constant. Fit the model again. To do this you can simply run the fit function again, which will lead to a continuation of training from where training ended before. After training has finished, evaluate the predictive accuracy again.</p></li>
 <li><p>Not all too much happening. Though, both fitting and prediction performance went up by another notch. This is again characteristic of neural networks. To really max out on performance, many epochs of training will often be necessary. However, at the same time risks to give the model opportunity to overfit the data.</p></li>
 </ol>
 </div>

@@ -1,16 +1,16 @@
 ---
 title: "Representation"
-author: "<a href='https://cdsbasel.github.io/dataanalytics/'>
+author: "<a href='https://cdsbasel.github.io/neuralnetworks/'>
     Introduction to Neural Networks
   </a>
   <br>
-  <a href='https://cdsbasel.github.io/dataanalytics/menu/materials.html'>
+  <a href='https://cdsbasel.github.io/neuralnetworks/menu/materials.html'>
     <i class='fas fa-clock' style='font-size:.9em;'></i>
   </a>&#8239; 
   <a href='https://cdsbasel.github.io/dataanalytics/'>
     <i class='fas fa-home' style='font-size:.9em;' ></i>
   </a>&#8239;
-  <a href='mailto:rui.mata@unibas.ch'>
+  <a href='mailto:dirk.wulff@unibas.ch'>
     <i class='fas fa-envelope' style='font-size: .9em;'></i>"
 date: "May 2020"
 output:
@@ -31,14 +31,14 @@ layout: true
     <span> 
       <img src="https://raw.githubusercontent.com/therbootcamp/therbootcamp.github.io/master/_sessions/_image/by-sa.png" height=14 style="vertical-align: middle"/>
     </span>
-    <a href="https://cdsbasel.github.io/dataanalytics/">
+    <a href="https://cdsbasel.github.io/neuralnetworks/">
       <span style="padding-left:82px"> 
         <font color="#7E7E7E">
-          cdsbasel.github.io/dataanalytics/
+          cdsbasel.github.io/neuralnetworks/
         </font>
       </span>
     </a>
-    <a href="https://cdsbasel.github.io/dataanalytics/">
+    <a href="https://cdsbasel.github.io/neuralnetworks/">
       <font color="#7E7E7E">
        Introduction to Neural Networks | May 2020
       </font>
@@ -111,7 +111,7 @@ digit[[2]][[2]] = digit[[2]][[2]][1:n]
 
 <ul>
   <li class="m1"><span>The <high>activation patterns in the hidden layers</high> reveal how inputs are represented.</span></li><br>
-  <li class="m2"><span>The activation patterns can easily be computed using basic <high>matrix algebra</high>, once the weights have been determined.</span></li>
+  <li class="m2"><span>Activation patterns can easily be computed using basic <high>matrix algebra</high> (once weights have been determined).</span></li>
 </ul>
 
 ]
@@ -135,7 +135,7 @@ digit[[2]][[2]] = digit[[2]][[2]][1:n]
 
 <ul>
   <li class="m1"><span>The <high>activation patterns in the hidden layers</high> reveal how inputs are represented.</span></li><br>
-  <li class="m2"><span>The activation patterns can easily be computed using basic <high>matrix algebra</high>, once the weights have been determined.</span></li>
+  <li class="m2"><span>Activation patterns can easily be computed using basic <high>matrix algebra</high> (once weights have been determined).</span></li>
 </ul>
 
 ]
@@ -159,7 +159,7 @@ digit[[2]][[2]] = digit[[2]][[2]][1:n]
 
 <ul>
   <li class="m1"><span>The <high>activation patterns in the hidden layers</high> reveal how inputs are represented.</span></li><br>
-  <li class="m2"><span>The activation patterns can easily be computed using basic <high>matrix algebra</high>, once the weights have been determined.</span></li>
+  <li class="m2"><span>Activation patterns can easily be computed using basic <high>matrix algebra</high> (once weights have been determined).</span></li>
 </ul>
 
 ]
@@ -184,7 +184,7 @@ digit[[2]][[2]] = digit[[2]][[2]][1:n]
 <ul>
   <li class="m1"><span>Convolutional neural networks (CNN) <high>learn input primitives</high>, e.g., lines of different orientations.</span></li><br>
   <li class="m2"><span>Later dense layers <high>recombine primitives</high> to form predictive higher-order characteristics, e.g., shapes.</span></li><br>
-  <li class="m3"><span>CNN are the <high>gold-standard</high> for image processing and <high>object recognition</high>.</span></li>
+  <li class="m3"><span>CNNs are the <high>gold-standard</high> for image processing and <high>object recognition</high>.</span></li>
 </ul>
 
 ]
@@ -205,8 +205,8 @@ digit[[2]][[2]] = digit[[2]][[2]][1:n]
 # Pixel embeddings
 
 <ul>
-  <li class="m1"><span>Even though the activation patterns cannot be understood on their own, they can be used as an <high>alternative encoding or embedding of the inputs</high>.</span></li><br>
-  <li class="m2"><span>Embeddings can be used to study the <high>relationship patterns</high> between inputs..</span></li>
+  <li class="m1"><span>Activation patterns cannot be understood on their own, still they can be used to learn much about inputs by treating them as <high>encodings or embeddings of the inputs</high>.</span></li><br>
+  <li class="m2"><span>Embeddings are particcularly useful for studying the <high>patterns of relationships</high> between inputs.</span></li>
 </ul>
 
 ]
@@ -231,8 +231,8 @@ digit[[2]][[2]] = digit[[2]][[2]][1:n]
 # Pixel embeddings
 
 <ul>
-  <li class="m1"><span>Even though the activation patterns cannot be understood on their own, they can be used as an <high>alternative encoding or embedding of the inputs</high>.</span></li><br>
-  <li class="m2"><span>Embeddings can be used to study the <high>relationship patterns</high> between inputs..</span></li>
+  <li class="m1"><span>Activation patterns cannot be understood on their own, still they can be used to learn much about inputs by treating them as <high>encodings or embeddings of the inputs</high>.</span></li><br>
+  <li class="m2"><span>Embeddings are particcularly useful for studying the <high>patterns of relationships</high> between inputs.</span></li>
 </ul>
 ]
 
@@ -255,8 +255,8 @@ digit[[2]][[2]] = digit[[2]][[2]][1:n]
 # Digit embeddings
 
 <ul>
-  <li class="m1"><span>Even though the activation patterns cannot be understood on their own, they can be used as an <high>alternative encoding or embedding of the inputs</high>.</span></li><br>
-  <li class="m2"><span>Embeddings can be used to study the <high>relationship patterns</high> between inputs..</span></li>
+  <li class="m1"><span>Activation patterns cannot be understood on their own, still they can be used to learn much about inputs by treating them as <high>encodings or embeddings of the inputs</high>.</span></li><br>
+  <li class="m2"><span>Embeddings are particcularly useful for studying the <high>patterns of relationships</high> between inputs.</span></li>
 </ul>
 
 ]
@@ -281,8 +281,8 @@ digit[[2]][[2]] = digit[[2]][[2]][1:n]
 # Digit embeddings
 
 <ul>
-  <li class="m1"><span>Even though the activation patterns cannot be understood on their own, they can be used as an <high>alternative encoding or embedding of the inputs</high>.</span></li><br>
-  <li class="m2"><span>Embeddings can be used to study the <high>relationship patterns</high> between inputs..</span></li>
+  <li class="m1"><span>Activation patterns cannot be understood on their own, still they can be used to learn much about inputs by treating them as <high>encodings or embeddings of the inputs</high>.</span></li><br>
+  <li class="m2"><span>Embeddings are particcularly useful for studying the <high>patterns of relationships</high> between inputs.</span></li>
 </ul>
 
 
@@ -307,8 +307,8 @@ digit[[2]][[2]] = digit[[2]][[2]][1:n]
 # Digit embeddings
 
 <ul>
-  <li class="m1"><span>Even though the activation patterns cannot be understood on their own, they can be used as an <high>alternative encoding or embedding of the inputs</high>.</span></li><br>
-  <li class="m2"><span>Embeddings can be used to study the <high>relationship patterns</high> between inputs..</span></li>
+  <li class="m1"><span>Activation patterns cannot be understood on their own, still they can be used to learn much about inputs by treating them as <high>encodings or embeddings of the inputs</high>.</span></li><br>
+  <li class="m2"><span>Embeddings are particcularly useful for studying the <high>patterns of relationships</high> between inputs.</span></li>
 </ul>
 
 
@@ -335,7 +335,7 @@ digit[[2]][[2]] = digit[[2]][[2]][1:n]
 
 <ul>
   <li class="m1"><span>Embeddings are especially <high>useful and popular for words</high>.</span></li><br>
-  <li class="m2"><span>Word embeddings represent an estimate of the (distributed) <high>meaning of a word</high>.</span></li>
+  <li class="m2"><span>Word embeddings approximate the (distributed) <high>meaning of a word</high>.</span></li>
   <li class="m3"><span>Word embeddings are used for research as much as for <high>many practical applications</high> (e.g., document search).</span></li>
 </ul>
 
@@ -360,7 +360,7 @@ digit[[2]][[2]] = digit[[2]][[2]][1:n]
 
 <ul>
   <li class="m1"><span>Embeddings are especially <high>useful and popular for words</high>.</span></li><br>
-  <li class="m2"><span>Word embeddings represent an estimate of the (distributed) <high>meaning of a word</high>.</span></li>
+  <li class="m2"><span>Word embeddings approximate the (distributed) <high>meaning of a word</high>.</span></li>
   <li class="m3"><span>Word embeddings are used for research as much as for <high>many practical applications</high> (e.g., document search).</span></li>
 </ul>
 
@@ -383,7 +383,7 @@ digit[[2]][[2]] = digit[[2]][[2]][1:n]
 
 <ul>
   <li class="m1"><span>Embeddings are especially <high>useful and popular for words</high>.</span></li><br>
-  <li class="m2"><span>Word embeddings represent an estimate of the (distributed) <high>meaning of a word</high>.</span></li>
+  <li class="m2"><span>Word embeddings approximate the (distributed) <high>meaning of a word</high>.</span></li>
   <li class="m3"><span>Word embeddings are used for research as much as for <high>many practical applications</high> (e.g., document search).</span></li>
 </ul>
 
@@ -407,7 +407,7 @@ digit[[2]][[2]] = digit[[2]][[2]][1:n]
 
 <ul>
   <li class="m1"><span>Embeddings are especially <high>useful and popular for words</high>.</span></li><br>
-  <li class="m2"><span>Word embeddings represent an estimate of the (distributed) <high>meaning of a word</high>.</span></li>
+  <li class="m2"><span>Word embeddings approximate the (distributed) <high>meaning of a word</high>.</span></li>
   <li class="m3"><span>Word embeddings are used for research as much as for <high>many practical applications</high> (e.g., document search).</span></li>
 </ul>
 
@@ -432,7 +432,7 @@ digit[[2]][[2]] = digit[[2]][[2]][1:n]
 
 <ul>
   <li class="m1"><span>Embeddings are especially <high>useful and popular for words</high>.</span></li><br>
-  <li class="m2"><span>Word embeddings represent an estimate of the (distributed) <high>meaning of a word</high>.</span></li>
+  <li class="m2"><span>Word embeddings approximate the (distributed) <high>meaning of a word</high>.</span></li>
   <li class="m3"><span>Word embeddings are used for research as much as for <high>many practical applications</high> (e.g., document search).</span></li>
 </ul>
 

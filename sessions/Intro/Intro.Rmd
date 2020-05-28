@@ -4,7 +4,7 @@ author: "<a href='https://cdsbasel.github.io/neuralnetworks/'>
     Introduction to Neural Networks
   </a>
   <br>
-  <a href='https://cdsbasel.github.io/neuralnetworks/menu/materials.html'>
+  <a href='https://cdsbasel.github.io/neuralnetworks/menu/schedule%20&%20materials.html'>
     <i class='fas fa-clock' style='font-size:.9em;'></i>
   </a>&#8239; 
   <a href='https://cdsbasel.github.io/neuralnetworks/'>
@@ -31,14 +31,14 @@ layout: true
     <span> 
       <img src="https://raw.githubusercontent.com/therbootcamp/therbootcamp.github.io/master/_sessions/_image/by-sa.png" height=14 style="vertical-align: middle"/>
     </span>
-    <a href="https://cdsbasel.github.io/dataanalytics/">
+    <a href="https://cdsbasel.github.io/neuralnetworks/">
       <span style="padding-left:82px"> 
         <font color="#7E7E7E">
-          cdsbasel.github.io/dataanalytics/
+          cdsbasel.github.io/neuralnetworks/
         </font>
       </span>
     </a>
-    <a href="https://cdsbasel.github.io/dataanalytics/">
+    <a href="https://cdsbasel.github.io/neuralnetworks/">
       <font color="#7E7E7E">
        Introduction to neural networks | May 2020
       </font>
@@ -60,8 +60,6 @@ library(tidyverse)
 
 # What do you think?
 
-No Googling :)
-
 ---
 
 # Back in the 50s and 60s
@@ -80,7 +78,7 @@ No Googling :)
 
 
 <ul>
-  <li class="m1"><span>Developed in 1958 by <high>Frank Rosenblatt</high>.</span></li>
+  <li class="m1"><span>Developed by <high>Frank Rosenblatt</high> in 1958.</span></li>
   <li class="m2"><span>The first <high>feedforward neural network</high>.</span></li>
   <li class="m3"><span>Consists of...</span></li>
   <ul>
@@ -113,7 +111,7 @@ No Googling :)
 
 
 <ul>
-  <li class="m1"><span>Developed in 1958 by <high>Frank Rosenblatt</high>.</span></li>
+  <li class="m1"><span>Developed by <high>Frank Rosenblatt</high> in 1958.</span></li>
   <li class="m2"><span>The first <high>feedforward neural network</high>.</span></li>
   <li class="m3"><span>Consists of...</span></li>
   <ul>
@@ -146,9 +144,9 @@ No Googling :)
 .pull-left3[
 
 <ul>
-  <li class="m1"><span>Inputs carry the information of the features, implying typically <high>n(features) = n(inputs)</high>.</span></li>
-  <li class="m2"><span>Typically a <high>bias</high> is included as one extra input.</span></li>
-  <li class="m3"><span>Higher dimenensional inputs are <high>flattened to 1D</high>.</span></li>
+  <li class="m1"><span>Inputs take information from features, implying typically <high>n(features) = n(inputs)</high>.</span></li>
+  <li class="m2"><span>Typically a <high>bias</high> is added as one extra input.</span></li>
+  <li class="m3"><span>Higher dimensional inputs are typically <high>flattened to 1D</high>.</span></li>
   <li class="m4"><span>Images are translated into <high>grey values</high> or rgb.</span></li>
 </ul>
 
@@ -169,9 +167,9 @@ No Googling :)
 .pull-left3[
 
 <ul>
-  <li class="m1"><span>Inputs carry the information of the features, implying typically <high>n(features) = n(inputs)</high>.</span></li>
-  <li class="m2"><span>Typically a <high>bias</high> is included as one extra input.</span></li>
-  <li class="m3"><span>Higher dimenensional inputs are <high>flattened to 1D</high>.</span></li>
+  <li class="m1"><span>Inputs take information from features, implying typically <high>n(features) = n(inputs)</high>.</span></li>
+  <li class="m2"><span>Typically a <high>bias</high> is added as one extra input.</span></li>
+  <li class="m3"><span>Higher dimensional inputs are typically <high>flattened to 1D</high>.</span></li>
   <li class="m4"><span>Images are translated into <high>grey values</high> or rgb.</span></li>
 </ul>
 
@@ -192,9 +190,9 @@ No Googling :)
 .pull-left3[
 
 <ul>
-  <li class="m1"><span>Inputs carry the information of the features, implying typically <high>n(features) = n(inputs)</high>.</span></li>
-  <li class="m2"><span>Typically a <high>bias</high> is included as one extra input.</span></li>
-  <li class="m3"><span>Higher dimenensional inputs are <high>flattened to 1D</high>.</span></li>
+  <li class="m1"><span>Inputs take information from features, implying typically <high>n(features) = n(inputs)</high>.</span></li>
+  <li class="m2"><span>Typically a <high>bias</high> is added as one extra input.</span></li>
+  <li class="m3"><span>Higher dimensional inputs are typically <high>flattened to 1D</high>.</span></li>
   <li class="m4"><span>Images are translated into <high>grey values</high> or rgb.</span></li>
 </ul>
 
@@ -215,8 +213,8 @@ No Googling :)
 .pull-left3[
 
 <ul>
-  <li class="m1"><span><high>Project the input</high> to the next/final layer, similar to a regression.</span></li>
-  <li class="m2"><span>Typically initialized with small <high>random values</high>.</span></li>
+  <li class="m1"><span>Weights <high>project the input</high> to the next/final layer.</span></li>
+  <li class="m2"><span>Typically initialized to small <high>random values</high>.</span></li>
 </ul>
 
 ]
@@ -237,12 +235,12 @@ No Googling :)
 .pull-left3[
 
 <ul>
-  <li class="m1"><span>A <high>linear combination</high> of the projecting inputs and their weights passed thorough an <high>step activation</high> function.</span></li>
+  <li class="m1"><span>A <high>linear combination</high> of the projecting inputs and their weights passed thorough a <high>step activation</high> function.</span></li>
 </ul>
 
-<p style="padding-top:20px"><u>Ouptut activation</u></p>
+<p style="padding-top:20px"><u>Output activation</u></p>
 
-$$\begin{align*}  a^L &= \sigma(w^\intercal a^{L-1}) \\ & =\sigma(w_1 \cdot a^{L-1}_1 + \cdots + w_j \cdot a^{L-1}_j) \\ & =\sigma(w_1 \cdot x_1+ \cdots + w_j \cdot x_j) \end{align*}$$
+$$\begin{align*}  a^L &= \sigma(z^{L}) = \sigma(w^\intercal a^{L-1}) \\ & =\sigma(w_1 \cdot a^{L-1}_1 + \cdots + w_j \cdot a^{L-1}_j) \\ & =\sigma(w_1 \cdot x_1+ \cdots + w_j \cdot x_j) \end{align*}$$
 
 
 <p style="padding-top:20px"><u>Step activation function</u></p>
@@ -269,8 +267,8 @@ $$\sigma(z) = {\begin{cases}{}
 .pull-left3[
 
 <ul>
-  <li class="m1"><span>The loss summarizes the <high>mismatch between the output activation and the criterion</high>.</span></li><br>
-  <li class="m2"><span>The loss is used as a <high>means to update the weights</high>.</span></li>
+  <li class="m1"><span>Loss summarizes the <high>mismatch between the output activation and the criterion</high>.</span></li><br>
+  <li class="m2"><span>Loss is used as a <high>means to update the weights</high>.</span></li>
 </ul>
 
 $$L_i(w_t) = y_i - w_t^\intercal x_i$$
@@ -293,7 +291,7 @@ $$L_i(w_t) = y_i - w_t^\intercal x_i$$
 .pull-left3[
 
 <ul>
-  <li class="m1"><span>A given weight is updated proportional to the loss, the input that is projected by the weight, and a learning rate <mono>r</mono>.</span></li><br>
+  <li class="m1"><span>A given weight is <high>updated proportional to the loss</high>, the input that is projected by the weight, and a learning rate <mono>r</mono>.</span></li><br>
 </ul>
 
 <p style="padding-top:20px"><u>Weight updating</u></p>
@@ -379,7 +377,7 @@ $$\large w_{t+1} = w_t + r \cdot L_i \cdot x_{ji}$$
 
 # Why should psychologist care?
 
-.pull-left25[
+.pull-left2[
 
 <br><br><br><br>
 
@@ -390,7 +388,7 @@ $$\large w_{t+1} = w_t + r \cdot L_i \cdot x_{ji}$$
 </ul>
 ]
 
-.pull-right65[
+.pull-right7[
 
 <br>
 
@@ -411,7 +409,7 @@ $$\large w_{t+1} = w_t + r \cdot L_i \cdot x_{ji}$$
 
 <ul>
   <li class="m1"><span>What is the <high>upper bound</high> predictability of the output?</span></li><br>
-  <li class="m2"><span>How do different <high>inputs contribute</high> to achieveing a certain level of performance?</span></li>
+  <li class="m2"><span>How do different <high>inputs contribute</high> to achieving predictive performance?</span></li>
 </ul>
 
 ]
@@ -436,8 +434,8 @@ $$\large w_{t+1} = w_t + r \cdot L_i \cdot x_{ji}$$
 <br>
 
 <ul>
-  <li class="m1"><span>Treat the neural network as an <high>as-if model</high> and study the inferred computations.</span></li><br><br><br><br>
-  <li class="m2"><span>Use the neural network to <high>extract meaningful representations</high> from the environment.</span></li>
+  <li class="m1"><span>Treat neural network as an <high>as-if model</high> and study the inferred computations.</span></li><br><br><br><br>
+  <li class="m2"><span>Use the neural network to extract <high>meaningful representations</high> from the environment.</span></li>
 </ul>
 
 ]
@@ -461,7 +459,7 @@ $$\large w_{t+1} = w_t + r \cdot L_i \cdot x_{ji}$$
 <br><br><br><br>
 
 <ul>
-  <li class="m1"><span>Use the neural network as an <high>actual model of cognitive processing</high> in the brain.</span></li>
+  <li class="m1"><span>Use neural network as an <high>actual model of cognitive processing</high> in the brain.</span></li>
 </ul>
 
 ]
@@ -506,4 +504,4 @@ $$\large w_{t+1} = w_t + r \cdot L_i \cdot x_{ji}$$
 ---
 class: middle, center
 
-<h1><a href=https://cdsbasel.github.io/dataanalytics/menu/materials.html>Materials</a></h1>
+<h1><a href="https://cdsbasel.github.io/neuralnetworks/menu/schedule & materials.html">Materials</a></h1>

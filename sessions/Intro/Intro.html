@@ -12,7 +12,7 @@
 class: center, middle, inverse, title-slide
 
 # Neural Networks
-### <a href='https://cdsbasel.github.io/neuralnetworks/'> Introduction to Neural Networks </a> <br> <a href='https://cdsbasel.github.io/neuralnetworks/menu/materials.html'> <i class='fas fa-clock' style='font-size:.9em;'></i> </a>  <a href='https://cdsbasel.github.io/neuralnetworks/'> <i class='fas fa-home' style='font-size:.9em;' ></i> </a>  <a href='mailto:rui.mata@unibas.ch'> <i class='fas fa-envelope' style='font-size: .9em;'></i>
+### <a href='https://cdsbasel.github.io/neuralnetworks/'> Introduction to Neural Networks </a> <br> <a href='https://cdsbasel.github.io/neuralnetworks/menu/schedule%20&%20materials.html'> <i class='fas fa-clock' style='font-size:.9em;'></i> </a>  <a href='https://cdsbasel.github.io/neuralnetworks/'> <i class='fas fa-home' style='font-size:.9em;' ></i> </a>  <a href='mailto:dirk.wulff@unibas.ch'> <i class='fas fa-envelope' style='font-size: .9em;'></i>
 ### May 2020
 
 ---
@@ -25,14 +25,14 @@ layout: true
     &lt;span&gt; 
       &lt;img src="https://raw.githubusercontent.com/therbootcamp/therbootcamp.github.io/master/_sessions/_image/by-sa.png" height=14 style="vertical-align: middle"/&gt;
     &lt;/span&gt;
-    &lt;a href="https://cdsbasel.github.io/dataanalytics/"&gt;
+    &lt;a href="https://cdsbasel.github.io/neuralnetworks/"&gt;
       &lt;span style="padding-left:82px"&gt; 
         &lt;font color="#7E7E7E"&gt;
-          cdsbasel.github.io/dataanalytics/
+          cdsbasel.github.io/neuralnetworks/
         &lt;/font&gt;
       &lt;/span&gt;
     &lt;/a&gt;
-    &lt;a href="https://cdsbasel.github.io/dataanalytics/"&gt;
+    &lt;a href="https://cdsbasel.github.io/neuralnetworks/"&gt;
       &lt;font color="#7E7E7E"&gt;
        Introduction to neural networks | May 2020
       &lt;/font&gt;
@@ -48,8 +48,6 @@ class: middle, center
 
 
 # What do you think?
-
-No Googling :)
 
 ---
 
@@ -69,7 +67,7 @@ No Googling :)
 
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;Developed in 1958 by &lt;high&gt;Frank Rosenblatt&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Developed by &lt;high&gt;Frank Rosenblatt&lt;/high&gt; in 1958.&lt;/span&gt;&lt;/li&gt;
   &lt;li class="m2"&gt;&lt;span&gt;The first &lt;high&gt;feedforward neural network&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
   &lt;li class="m3"&gt;&lt;span&gt;Consists of...&lt;/span&gt;&lt;/li&gt;
   &lt;ul&gt;
@@ -102,7 +100,7 @@ No Googling :)
 
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;Developed in 1958 by &lt;high&gt;Frank Rosenblatt&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Developed by &lt;high&gt;Frank Rosenblatt&lt;/high&gt; in 1958.&lt;/span&gt;&lt;/li&gt;
   &lt;li class="m2"&gt;&lt;span&gt;The first &lt;high&gt;feedforward neural network&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
   &lt;li class="m3"&gt;&lt;span&gt;Consists of...&lt;/span&gt;&lt;/li&gt;
   &lt;ul&gt;
@@ -135,9 +133,9 @@ No Googling :)
 .pull-left3[
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;Inputs carry the information of the features, implying typically &lt;high&gt;n(features) = n(inputs)&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
-  &lt;li class="m2"&gt;&lt;span&gt;Typically a &lt;high&gt;bias&lt;/high&gt; is included as one extra input.&lt;/span&gt;&lt;/li&gt;
-  &lt;li class="m3"&gt;&lt;span&gt;Higher dimenensional inputs are &lt;high&gt;flattened to 1D&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Inputs take information from features, implying typically &lt;high&gt;n(features) = n(inputs)&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Typically a &lt;high&gt;bias&lt;/high&gt; is added as one extra input.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m3"&gt;&lt;span&gt;Higher dimensional inputs are typically &lt;high&gt;flattened to 1D&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
   &lt;li class="m4"&gt;&lt;span&gt;Images are translated into &lt;high&gt;grey values&lt;/high&gt; or rgb.&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -158,9 +156,9 @@ No Googling :)
 .pull-left3[
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;Inputs carry the information of the features, implying typically &lt;high&gt;n(features) = n(inputs)&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
-  &lt;li class="m2"&gt;&lt;span&gt;Typically a &lt;high&gt;bias&lt;/high&gt; is included as one extra input.&lt;/span&gt;&lt;/li&gt;
-  &lt;li class="m3"&gt;&lt;span&gt;Higher dimenensional inputs are &lt;high&gt;flattened to 1D&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Inputs take information from features, implying typically &lt;high&gt;n(features) = n(inputs)&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Typically a &lt;high&gt;bias&lt;/high&gt; is added as one extra input.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m3"&gt;&lt;span&gt;Higher dimensional inputs are typically &lt;high&gt;flattened to 1D&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
   &lt;li class="m4"&gt;&lt;span&gt;Images are translated into &lt;high&gt;grey values&lt;/high&gt; or rgb.&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -181,9 +179,9 @@ No Googling :)
 .pull-left3[
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;Inputs carry the information of the features, implying typically &lt;high&gt;n(features) = n(inputs)&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
-  &lt;li class="m2"&gt;&lt;span&gt;Typically a &lt;high&gt;bias&lt;/high&gt; is included as one extra input.&lt;/span&gt;&lt;/li&gt;
-  &lt;li class="m3"&gt;&lt;span&gt;Higher dimenensional inputs are &lt;high&gt;flattened to 1D&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Inputs take information from features, implying typically &lt;high&gt;n(features) = n(inputs)&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Typically a &lt;high&gt;bias&lt;/high&gt; is added as one extra input.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m3"&gt;&lt;span&gt;Higher dimensional inputs are typically &lt;high&gt;flattened to 1D&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
   &lt;li class="m4"&gt;&lt;span&gt;Images are translated into &lt;high&gt;grey values&lt;/high&gt; or rgb.&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -204,8 +202,8 @@ No Googling :)
 .pull-left3[
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;&lt;high&gt;Project the input&lt;/high&gt; to the next/final layer, similar to a regression.&lt;/span&gt;&lt;/li&gt;
-  &lt;li class="m2"&gt;&lt;span&gt;Typically initialized with small &lt;high&gt;random values&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Weights &lt;high&gt;project the input&lt;/high&gt; to the next/final layer.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Typically initialized to small &lt;high&gt;random values&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 ]
@@ -226,12 +224,12 @@ No Googling :)
 .pull-left3[
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;A &lt;high&gt;linear combination&lt;/high&gt; of the projecting inputs and their weights passed thorough an &lt;high&gt;step activation&lt;/high&gt; function.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;A &lt;high&gt;linear combination&lt;/high&gt; of the projecting inputs and their weights passed thorough a &lt;high&gt;step activation&lt;/high&gt; function.&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p style="padding-top:20px"&gt;&lt;u&gt;Ouptut activation&lt;/u&gt;&lt;/p&gt;
+&lt;p style="padding-top:20px"&gt;&lt;u&gt;Output activation&lt;/u&gt;&lt;/p&gt;
 
-`$$\begin{align*}  a^L &amp;= \sigma(w^\intercal a^{L-1}) \\ &amp; =\sigma(w_1 \cdot a^{L-1}_1 + \cdots + w_j \cdot a^{L-1}_j) \\ &amp; =\sigma(w_1 \cdot x_1+ \cdots + w_j \cdot x_j) \end{align*}$$`
+`$$\begin{align*}  a^L &amp;= \sigma(z^{L}) = \sigma(w^\intercal a^{L-1}) \\ &amp; =\sigma(w_1 \cdot a^{L-1}_1 + \cdots + w_j \cdot a^{L-1}_j) \\ &amp; =\sigma(w_1 \cdot x_1+ \cdots + w_j \cdot x_j) \end{align*}$$`
 
 
 &lt;p style="padding-top:20px"&gt;&lt;u&gt;Step activation function&lt;/u&gt;&lt;/p&gt;
@@ -258,8 +256,8 @@ No Googling :)
 .pull-left3[
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;The loss summarizes the &lt;high&gt;mismatch between the output activation and the criterion&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;&lt;br&gt;
-  &lt;li class="m2"&gt;&lt;span&gt;The loss is used as a &lt;high&gt;means to update the weights&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Loss summarizes the &lt;high&gt;mismatch between the output activation and the criterion&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;&lt;br&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Loss is used as a &lt;high&gt;means to update the weights&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 `$$L_i(w_t) = y_i - w_t^\intercal x_i$$`
@@ -282,7 +280,7 @@ No Googling :)
 .pull-left3[
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;A given weight is updated proportional to the loss, the input that is projected by the weight, and a learning rate &lt;mono&gt;r&lt;/mono&gt;.&lt;/span&gt;&lt;/li&gt;&lt;br&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;A given weight is &lt;high&gt;updated proportional to the loss&lt;/high&gt;, the input that is projected by the weight, and a learning rate &lt;mono&gt;r&lt;/mono&gt;.&lt;/span&gt;&lt;/li&gt;&lt;br&gt;
 &lt;/ul&gt;
 
 &lt;p style="padding-top:20px"&gt;&lt;u&gt;Weight updating&lt;/u&gt;&lt;/p&gt;
@@ -368,7 +366,7 @@ No Googling :)
 
 # Why should psychologist care?
 
-.pull-left25[
+.pull-left2[
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -379,7 +377,7 @@ No Googling :)
 &lt;/ul&gt;
 ]
 
-.pull-right65[
+.pull-right7[
 
 &lt;br&gt;
 
@@ -400,7 +398,7 @@ No Googling :)
 
 &lt;ul&gt;
   &lt;li class="m1"&gt;&lt;span&gt;What is the &lt;high&gt;upper bound&lt;/high&gt; predictability of the output?&lt;/span&gt;&lt;/li&gt;&lt;br&gt;
-  &lt;li class="m2"&gt;&lt;span&gt;How do different &lt;high&gt;inputs contribute&lt;/high&gt; to achieveing a certain level of performance?&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;How do different &lt;high&gt;inputs contribute&lt;/high&gt; to achieving predictive performance?&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 ]
@@ -425,8 +423,8 @@ No Googling :)
 &lt;br&gt;
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;Treat the neural network as an &lt;high&gt;as-if model&lt;/high&gt; and study the inferred computations.&lt;/span&gt;&lt;/li&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
-  &lt;li class="m2"&gt;&lt;span&gt;Use the neural network to &lt;high&gt;extract meaningful representations from the environment&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Treat neural network as an &lt;high&gt;as-if model&lt;/high&gt; and study the inferred computations.&lt;/span&gt;&lt;/li&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Use the neural network to extract &lt;high&gt;meaningful representations&lt;/high&gt; from the environment.&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 ]
@@ -450,7 +448,7 @@ No Googling :)
 &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;Use the neural network as an &lt;high&gt;actual model of cognitive processing&lt;/high&gt; in the brain.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Use neural network as an &lt;high&gt;actual model of cognitive processing&lt;/high&gt; in the brain.&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 ]
@@ -495,7 +493,7 @@ No Googling :)
 ---
 class: middle, center
 
-&lt;h1&gt;&lt;a href=https://cdsbasel.github.io/dataanalytics/menu/materials.html&gt;Materials&lt;/a&gt;&lt;/h1&gt;
+&lt;h1&gt;&lt;a href="https://cdsbasel.github.io/neuralnetworks/menu/schedule &amp; materials.html"&gt;Materials&lt;/a&gt;&lt;/h1&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

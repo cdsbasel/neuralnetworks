@@ -241,7 +241,7 @@ library(keras)</code></pre>
 source(&quot;2_Code/helper.R&quot;)</code></pre>
 <br>
 <p style="font-size:20px;background-color:#6ABA9A;color:white;padding-left:20px" align="left" width="100%">
-Teil 1: <b>Fashion</b>
+Part 1: <b>Fashion</b>
 </p>
 </div>
 <div id="b---fit-network" class="section level3">
@@ -362,7 +362,7 @@ plot_cosine(fashion_cosines)</code></pre>
 <pre class="r"><code># Plot cosine similarities
 plot_cosine(fashion_cosines)</code></pre>
 <ol start="4" style="list-style-type: decimal">
-<li>The cosine similarity plot shows several interesting patterns. First, items of one item type, as should be, are consistently more similary to themselves than to other item type. This can be gleaned from fact that the rectangles in the diagonal are always lightest in their respective columns. Second, some items types are closer to each other than others are. This can be gleaned from the fact that there are other light rectanble off the diagnal. Use the code below to visulize this information in a more intuitive way using multi-dimensional scaling. Yes, there is a function ready, <code>plot_cosine_mds()</code>. Try to make sense of the plot.</li>
+<li>The cosine similarity plot shows several interesting patterns. First, items of one item type, as should be, are consistently more similar to themselves than to other item type. This can be gleaned from fact that the rectangles in the diagonal are always lightest in their respective columns. Second, some items types are closer to each other than others are. This can be gleaned from the fact that there are other light rectangle off the diagonal. Use the code below to visualize this information in a more intuitive way using multi-dimensional scaling. Yes, there is a function ready, <code>plot_cosine_mds()</code>. Try to make sense of the plot.</li>
 </ol>
 <pre class="r"><code># calculate cosine similarities
 plot_cosine_mds(fashion_cosines, fashion_labels[items[order(items)]+1])</code></pre>
@@ -370,7 +370,7 @@ plot_cosine_mds(fashion_cosines, fashion_labels[items[order(items)]+1])</code></
 <div id="e---understanding-prediction-errors" class="section level3">
 <h3>E - Understanding prediction errors</h3>
 <ol style="list-style-type: decimal">
-<li>The cosine mds plot confirmed both the overall good separation of fashion items, but also that some item types are more similary to each other than others. Importantly, these patterns should translate into the errors that the model makes. Use the code below to determine the confusion matrix for the predictions of the test set. Do the confusions in prediction line up with the overlap of fashion items in the cosine mds?</li>
+<li>The cosine mds plot confirmed both the overall good separation of fashion items, but also that some item types are more similar to each other than others. Importantly, these patterns should translate into the errors that the model makes. Use the code below to determine the confusion matrix for the predictions of the test set. Do the confusions in prediction line up with the overlap of fashion items in the cosine mds?</li>
 </ol>
 <pre class="r"><code># prediction confusion matrix
 pred = net %&gt;% predict_classes(fashion_test_images_serialized)
@@ -379,8 +379,8 @@ table(fashion_labels[fashion_test_items+1], fashion_labels[pred+1])</code></pre>
 <li>Yes, they do. The biggest prediction errors occur for the types <code>Coat</code>, <code>Pullover</code>, and <code>Shirt</code>, which in the cosine mds pretty much sit on top of each other.</li>
 </ol>
 </div>
-<div id="f---optional-depper-layers" class="section level3">
-<h3>F - Optional: Depper layers</h3>
+<div id="f---optional-deeper-layers" class="section level3">
+<h3>F - Optional: Deeper layers</h3>
 <ol style="list-style-type: decimal">
 <li>Carry out the same analyses as above, however, using the embedding at the second layer, which are little more complicated to determine, as the first layer’s biases and the activation function need to be taken into account.</li>
 </ol>
@@ -391,7 +391,7 @@ a_1 &lt;- t(apply(z_1, 1, relu))
 embedding &lt;- a_1 %*% weights[[3]]</code></pre>
 <br>
 <p style="font-size:20px;background-color:#6ABA9A;color:white;padding-left:20px" align="left" width="100%">
-Teil 2: <b>Words</b>
+Part 2: <b>Words</b>
 </p>
 </div>
 <div id="g---word-embeddings" class="section level3">
@@ -412,7 +412,7 @@ rownames(capital)</code></pre>
 <pre class="r"><code># plot capital embedding
 plot_embedding(capital)</code></pre>
 <ol start="4" style="list-style-type: decimal">
-<li>Not much to see. Maybe a littel bit of banding for the pairs of words belonging to one country, but certainy not much. Calculate the cosine similarities and plot them.</li>
+<li>Not much to see. Maybe a little bit of banding for the pairs of words belonging to one country, but certainly not much. Calculate the cosine similarities and plot them.</li>
 </ol>
 <pre class="r"><code># plot capital
 capital_cosine = cosine(capital)

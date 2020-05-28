@@ -123,7 +123,7 @@ source("2_Code/helper.R")
 
 <br>
 <p style="font-size:20px;background-color:#6ABA9A;color:white;padding-left:20px" align="left" width=100%>
-Teil 1: <b>Fashion</b>
+Part 1: <b>Fashion</b>
 </p>
 
 ### B - Fit network
@@ -265,7 +265,7 @@ plot_cosine(fashion_cosines)
 plot_cosine(fashion_cosines)
 ```
 
-4. The cosine similarity plot shows several interesting patterns. First, items of one item type, as should be, are consistently more similary to themselves than to other item type. This can be gleaned from fact that the rectangles in the diagonal are always lightest in their respective columns. Second, some items types are closer to each other than others are. This can be gleaned from the fact that there are other light rectanble off the diagnal. Use the code below to visulize this information in a more intuitive way using multi-dimensional scaling. Yes, there is a function ready, `plot_cosine_mds()`. Try to make sense of the plot.    
+4. The cosine similarity plot shows several interesting patterns. First, items of one item type, as should be, are consistently more similar to themselves than to other item type. This can be gleaned from fact that the rectangles in the diagonal are always lightest in their respective columns. Second, some items types are closer to each other than others are. This can be gleaned from the fact that there are other light rectangle off the diagonal. Use the code below to visualize this information in a more intuitive way using multi-dimensional scaling. Yes, there is a function ready, `plot_cosine_mds()`. Try to make sense of the plot.    
 
 
 ```{r, echo = TRUE}
@@ -275,7 +275,7 @@ plot_cosine_mds(fashion_cosines, fashion_labels[items[order(items)]+1])
 
 ### E - Understanding prediction errors
 
-1. The cosine mds plot confirmed both the overall good separation of fashion items, but also that some item types are more similary to each other than others. Importantly, these patterns should translate into the errors that the model makes. Use the code below to determine the confusion matrix for the predictions of the test set. Do the confusions in prediction line up with the overlap of fashion items in the cosine mds?
+1. The cosine mds plot confirmed both the overall good separation of fashion items, but also that some item types are more similar to each other than others. Importantly, these patterns should translate into the errors that the model makes. Use the code below to determine the confusion matrix for the predictions of the test set. Do the confusions in prediction line up with the overlap of fashion items in the cosine mds?
 
 ```{r, echo = TRUE}
 # prediction confusion matrix
@@ -285,7 +285,7 @@ table(fashion_labels[fashion_test_items+1], fashion_labels[pred+1])
 
 2. Yes, they do. The biggest prediction errors occur for the types `Coat`, `Pullover`, and `Shirt`, which in the cosine mds pretty much sit on top of each other. 
 
-### F - Optional: Depper layers
+### F - Optional: Deeper layers
 
 1. Carry out the same analyses as above, however, using the embedding at the second layer, which are little more complicated to determine, as the first layer's biases and the activation function need to be taken into account.  
 
@@ -299,7 +299,7 @@ embedding <- a_1 %*% weights[[3]]
 
 <br>
 <p style="font-size:20px;background-color:#6ABA9A;color:white;padding-left:20px" align="left" width=100%>
-Teil 2: <b>Words</b>
+Part 2: <b>Words</b>
 </p>
 
 ### G - Word embeddings
@@ -324,7 +324,7 @@ rownames(capital)
 plot_embedding(capital)
 ```
 
-4. Not much to see. Maybe a littel bit of banding for the pairs of words belonging to one country, but certainy not much. Calculate the cosine similarities and plot them. 
+4. Not much to see. Maybe a little bit of banding for the pairs of words belonging to one country, but certainly not much. Calculate the cosine similarities and plot them. 
 
 ```{r, echo = TRUE}
 # plot capital

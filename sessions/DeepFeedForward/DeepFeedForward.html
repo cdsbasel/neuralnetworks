@@ -12,7 +12,7 @@
 class: center, middle, inverse, title-slide
 
 # Deep feedforward
-### <a href='https://cdsbasel.github.io/dataanalytics/'> Introduction to Neural Networks </a> <br> <a href='https://cdsbasel.github.io/dataanalytics/menu/materials.html'> <i class='fas fa-clock' style='font-size:.9em;'></i> </a>  <a href='https://cdsbasel.github.io/dataanalytics/'> <i class='fas fa-home' style='font-size:.9em;' ></i> </a>  <a href='mailto:rui.mata@unibas.ch'> <i class='fas fa-envelope' style='font-size: .9em;'></i>
+### <a href='https://cdsbasel.github.io/neuralnetworks/'> Introduction to Neural Networks </a> <br> <a href='https://cdsbasel.github.io/neuralnetworks/menu/schedule%20&%20materials.html'> <i class='fas fa-clock' style='font-size:.9em;'></i> </a>  <a href='https://cdsbasel.github.io/neuralnetworks/'> <i class='fas fa-home' style='font-size:.9em;' ></i> </a>  <a href='mailto:dirk.wulff@unibas.ch'> <i class='fas fa-envelope' style='font-size: .9em;'></i>
 ### May 2020
 
 ---
@@ -25,14 +25,14 @@ layout: true
     &lt;span&gt; 
       &lt;img src="https://raw.githubusercontent.com/therbootcamp/therbootcamp.github.io/master/_sessions/_image/by-sa.png" height=14 style="vertical-align: middle"/&gt;
     &lt;/span&gt;
-    &lt;a href="https://cdsbasel.github.io/dataanalytics/"&gt;
+    &lt;a href="https://cdsbasel.github.io/neuralnetworks/"&gt;
       &lt;span style="padding-left:82px"&gt; 
         &lt;font color="#7E7E7E"&gt;
-          cdsbasel.github.io/dataanalytics/
+          cdsbasel.github.io/neuralnetworks/
         &lt;/font&gt;
       &lt;/span&gt;
     &lt;/a&gt;
-    &lt;a href="https://cdsbasel.github.io/dataanalytics/"&gt;
+    &lt;a href="https://cdsbasel.github.io/neuralnetworks/"&gt;
       &lt;font color="#7E7E7E"&gt;
        Introduction to Neural Networks | May 2020
       &lt;/font&gt;
@@ -126,9 +126,9 @@ $$ \sigma(w^\intercal a) = \sigma(z) = { \begin{cases}
 # Multi-class activation 
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;A &lt;high&gt;multi-class criterion&lt;/high&gt; requires multiple output.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;A &lt;high&gt;multi-class criterion&lt;/high&gt; requires multiple outputs.&lt;/span&gt;&lt;/li&gt;
   &lt;li class="m2"&gt;&lt;span&gt;&lt;high&gt;One-hot coding&lt;/high&gt;&lt;br&gt;&lt;br&gt; 2 &amp;rarr; 0, 1, 0, 0, 0&lt;br&gt; 5 &amp;rarr; 0, 0, 0, 0, 1&lt;/span&gt;&lt;/li&gt;
-  &lt;li class="m3"&gt;&lt;span&gt;The &lt;high&gt;softmax activation function&lt;/high&gt; handles such cases.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m3"&gt;&lt;span&gt;The &lt;high&gt;softmax activation function&lt;/high&gt; results in matching probabilistic predictions.&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -178,12 +178,11 @@ $$    L_{01} = {\begin{cases}{}
 ---&gt;
 
 &lt;p align="center"&gt;&lt;img src="image/zeroone.png" height=80px&gt;&lt;/img&gt;&lt;/p&gt;
-  
 
 &lt;p align="center"&gt;&lt;u&gt;Binary cross-entropy&lt;/u&gt;&lt;/p&gt;
 
 `$$H=\sum_i -y_i \cdot log(a_i^L) - (1-y_i) \cdot log(1-a_i^L)$$`
-&lt;p align="center"&gt;&lt;u&gt;Categeorical cross-entropy&lt;/u&gt;&lt;/p&gt;
+&lt;p align="center"&gt;&lt;u&gt;Categorical cross-entropy&lt;/u&gt;&lt;/p&gt;
 
 `$$H=\sum_{i}\sum_{j} -y_{ij} \cdot log(a_{ij}^L) - (1-y_{ij}) \cdot log(1-a_{ij}^L)$$`
 
@@ -202,7 +201,7 @@ $$    L_{01} = {\begin{cases}{}
 
 &lt;ul&gt;
   &lt;li class="m1"&gt;&lt;span&gt;Or how to &lt;high&gt;fit deep feedforward networks&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
-  &lt;li class="m2"&gt;&lt;span&gt;The gradient expresses the &lt;high&gt;change in the Loss function&lt;/high&gt; in due changes in the weights &lt;mono&gt;w&lt;/mono&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;The gradient expresses the &lt;high&gt;change in the Loss function&lt;/high&gt; due changes in the weights &lt;mono&gt;w&lt;/mono&gt;.&lt;/span&gt;&lt;/li&gt;
   &lt;li class="m3"&gt;&lt;span&gt;Weights are updated in the &lt;high&gt;direction opposite to the gradient&lt;/high&gt; scaled by a &lt;high&gt;learning rate &amp;alpha;&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -239,7 +238,7 @@ $$ w_{t+1} = w_t - \alpha \cdot \nabla_{w} \cdot \sum_{1}^{m} L_{m}(w) $$
 
 &lt;ul&gt;
   &lt;li class="m1"&gt;&lt;span&gt;Or how to &lt;high&gt;fit deep feedforward networks&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
-  &lt;li class="m2"&gt;&lt;span&gt;The gradient expresses the &lt;high&gt;change in the Loss function&lt;/high&gt; in due changes in the weights &lt;mono&gt;w&lt;/mono&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;The gradient expresses the &lt;high&gt;change in the Loss function&lt;/high&gt; due changes in the weights &lt;mono&gt;w&lt;/mono&gt;.&lt;/span&gt;&lt;/li&gt;
   &lt;li class="m3"&gt;&lt;span&gt;Weights are updated in the &lt;high&gt;direction opposite to the gradient&lt;/high&gt; scaled by a &lt;high&gt;learning rate &amp;alpha;&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -273,7 +272,7 @@ $$ w_{t+1} = w_t - \alpha \cdot \nabla_{w} \cdot \sum_{1}^{m} L_{m}(w) $$
 
 &lt;ul&gt;
   &lt;li class="m1"&gt;&lt;span&gt;Or how to &lt;high&gt;fit deep feedforward networks&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
-  &lt;li class="m2"&gt;&lt;span&gt;The gradient expresses the &lt;high&gt;change in the Loss function&lt;/high&gt; in due changes in the weights &lt;mono&gt;w&lt;/mono&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;The gradient expresses the &lt;high&gt;change in the Loss function&lt;/high&gt; due changes in the weights &lt;mono&gt;w&lt;/mono&gt;.&lt;/span&gt;&lt;/li&gt;
   &lt;li class="m3"&gt;&lt;span&gt;Weights are updated in the &lt;high&gt;direction opposite to the gradient&lt;/high&gt; scaled by a &lt;high&gt;learning rate &amp;alpha;&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -305,7 +304,7 @@ $$ w_{t+1} = w_t - \alpha \cdot \nabla_{w} \cdot \sum_{1}^{m} L_{m}(w) $$
 
 &lt;ul&gt;
   &lt;li class="m1"&gt;&lt;span&gt;Or how to &lt;high&gt;fit deep feedforward networks&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
-  &lt;li class="m2"&gt;&lt;span&gt;The gradient expresses the &lt;high&gt;change in the Loss function&lt;/high&gt; in due changes in the weights &lt;mono&gt;w&lt;/mono&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;The gradient expresses the &lt;high&gt;change in the Loss function&lt;/high&gt; due changes in the weights &lt;mono&gt;w&lt;/mono&gt;.&lt;/span&gt;&lt;/li&gt;
   &lt;li class="m3"&gt;&lt;span&gt;Weights are updated in the &lt;high&gt;direction opposite to the gradient&lt;/high&gt; scaled by a &lt;high&gt;learning rate &amp;alpha;&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -372,11 +371,11 @@ $$ w_{t+1} = w_t - \alpha \cdot \nabla_{w} \cdot \sum_{1}^{m} L_{m}(w) $$
   &lt;li class="m2"&gt;&lt;span&gt;Successfully deals with &lt;high&gt;local minima&lt;/high&gt; and &lt;high&gt;unbalanced data&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;u&gt;Expected first moment(um)&lt;/u&gt;
+&lt;u&gt;Expected 1st moment (momentum)&lt;/u&gt;
 
 `$$m_{t} = \beta_1 m_{t-1} + (1-\beta_1) \nabla_{w}$$`
 
-&lt;u&gt;Expected 2nd moment&lt;/u&gt;
+&lt;u&gt;Expected 2nd moment (change)&lt;/u&gt;
 
 `$$v_{t} = \beta_2 v_{t-1} + (1-\beta_2) \nabla_{w}^2$$`
 
@@ -435,7 +434,7 @@ $$ w_{t+1} = w_t - \alpha \cdot \nabla_{w} \cdot \sum_{1}^{m} L_{m}(w) $$
 &lt;ul&gt;
   &lt;li class="m1"&gt;&lt;span&gt;&lt;high&gt;Universal approximation theorem&lt;/high&gt;: A network with a single hidden layer can approximate any function.&lt;/span&gt;&lt;/li&gt;&lt;br&gt;
   &lt;li class="m2"&gt;&lt;span&gt;Still, &lt;high&gt;depth trumps width&lt;/high&gt;:&lt;br&gt;&lt;br&gt;&lt;i&gt;Empirically, greater depth does seem to result in better generalization for a wide variety of tasks. […] This suggests that using deep architectures does indeed express a useful prior over the space of functions the model learns.&lt;/i&gt;&lt;br&gt;Goodfellow et al. (2016, p. 201)&lt;/span&gt;&lt;/li&gt;&lt;br&gt;
-  &lt;li class="m3"&gt;&lt;span&gt;For the rest, &lt;high&gt;try&lt;/high&gt;&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m3"&gt;&lt;span&gt;For the rest, &lt;high&gt;try&lt;/high&gt;...&lt;/span&gt;&lt;/li&gt;
   &lt;ul&gt;
     &lt;li&gt;&lt;span&gt;Intuition&lt;/span&gt;&lt;/li&gt;    
     &lt;li&gt;&lt;span&gt;Experimentation&lt;/span&gt;&lt;/li&gt; 
@@ -465,12 +464,12 @@ $$ w_{t+1} = w_t - \alpha \cdot \nabla_{w} \cdot \sum_{1}^{m} L_{m}(w) $$
 # Flexibility control
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;Neural networks can easily become &lt;high&gt;too flexible for good predictive accuracy&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;&lt;br&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;Neural networks can easily become &lt;high&gt;too flexible for achieving good predictive accuracy&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;&lt;br&gt;
   &lt;li class="m2"&gt;&lt;span&gt;Ways to &lt;high&gt;control network flexibility&lt;/high&gt;:&lt;/span&gt;&lt;/li&gt;&lt;br&gt;
   &lt;ul&gt;
     &lt;li&gt;&lt;span&gt;Reduce depth / width&lt;/span&gt;&lt;/li&gt;&lt;br&gt;    
-    &lt;li&gt;&lt;span&gt;L1/L2 regularization&lt;br&gt;&lt;br&gt;Increase loss proportional to magnitude of the weight.&lt;/span&gt;&lt;/li&gt;&lt;br&gt;
-    &lt;li&gt;&lt;span&gt;Dropout&lt;br&gt;&lt;br&gt; Randomlyset the activation of nodes to 0.&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;L1/L2 regularization&lt;br&gt;&lt;br&gt;Adds loss proportional to magnitude of the weight.&lt;/span&gt;&lt;/li&gt;&lt;br&gt;
+    &lt;li&gt;&lt;span&gt;Dropout&lt;br&gt;&lt;br&gt; Randomly set the activation of nodes to 0.&lt;/span&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/ul&gt;
 
@@ -521,8 +520,8 @@ $$ w_{t+1} = w_t - \alpha \cdot \nabla_{w} \cdot \sum_{1}^{m} L_{m}(w) $$
 
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;The Modified National Institute of Standards and Technology database is best known for the &lt;high&gt;handwritten digit dataset&lt;/high&gt;, the default traning data set for image recognition.&lt;/span&gt;&lt;/li&gt;&lt;br&gt;
-  &lt;li class="m2"&gt;&lt;span&gt;It contains &lt;high&gt;28x28px greyscale images&lt;/high&gt; (features) and associated &lt;high&gt;integer labels&lt;/high&gt; (criterion) indicating the &lt;high&gt;correct numbers.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;The Modified National Institute of Standards and Technology database is best known for the &lt;high&gt;handwritten digit dataset&lt;/high&gt;, the go-to training data set for image recognition.&lt;/span&gt;&lt;/li&gt;&lt;br&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;It contains &lt;high&gt;28x28px greyscale images&lt;/high&gt; (features) and associated &lt;high&gt;integer labels&lt;/high&gt; (criterion) indicating the &lt;high&gt;correct digits.&lt;/span&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/ul&gt;
 
@@ -545,8 +544,8 @@ $$ w_{t+1} = w_t - \alpha \cdot \nabla_{w} \cdot \sum_{1}^{m} L_{m}(w) $$
 .pull-left4[
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;The Modified National Institute of Standards and Technology database is best known for the &lt;high&gt;handwritten digit dataset&lt;/high&gt;, the default traning data set for image recognition.&lt;/span&gt;&lt;/li&gt;&lt;br&gt;
-  &lt;li class="m2"&gt;&lt;span&gt;It contains &lt;high&gt;28x28px greyscale images&lt;/high&gt; (features) and associated &lt;high&gt;integer labels&lt;/high&gt; (criterion) indicating the &lt;high&gt;correct numbers.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;The Modified National Institute of Standards and Technology database is best known for the &lt;high&gt;handwritten digit dataset&lt;/high&gt;, the go-to training data set for image recognition.&lt;/span&gt;&lt;/li&gt;&lt;br&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;It contains &lt;high&gt;28x28px greyscale images&lt;/high&gt; (features) and associated &lt;high&gt;integer labels&lt;/high&gt; (criterion) indicating the &lt;high&gt;correct digits.&lt;/span&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/ul&gt;
 
@@ -593,7 +592,7 @@ digit_train[1:18]
 .pull-left3[
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;For neural network modeling, features and criterion must be &lt;high&gt;transformed into the correct shapes&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;&lt;br&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;For neural network modeling, features and criterion typically must be first &lt;high&gt;transformed into the correct shapes&lt;/high&gt;.&lt;/span&gt;&lt;/li&gt;&lt;br&gt;
   &lt;/ul&gt;
 &lt;/ul&gt;
 
@@ -632,9 +631,9 @@ digit_train[1:3,1:8]
 .pull-left4[
 
 &lt;ul&gt;
-  &lt;li class="m1"&gt;&lt;span&gt;&lt;high&gt;Convenient interface&lt;/high&gt; for specifying deep neural networks using keras.&lt;/span&gt;&lt;/li&gt;
-  &lt;li class="m2"&gt;&lt;span&gt;Allows &lt;high&gt;sequential build-up&lt;/high&gt; of the network layer by layer.&lt;/span&gt;&lt;/li&gt;
-  &lt;li class="m3"&gt;&lt;span&gt;&lt;highm&gt;layer_dense&lt;/highm&gt; is the most common of dozens of layer types.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m1"&gt;&lt;span&gt;&lt;high&gt;Convenient interface&lt;/high&gt; for specifying deep neural networks using &lt;mono&gt;keras&lt;/mono&gt;.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m2"&gt;&lt;span&gt;Allows &lt;high&gt;sequential build-up&lt;/high&gt; of the network in a layer-by-layer fashion.&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="m3"&gt;&lt;span&gt;&lt;highm&gt;layer_dense&lt;/highm&gt; is the most common of dozens of layer types available.&lt;/span&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/ul&gt;
 
@@ -736,8 +735,6 @@ summary(model)
 ## ____________________________________________________________________________________________________
 ```
 
-]
-
 
 ---
 
@@ -770,7 +767,7 @@ summary(model)
 &lt;/tr&gt;
 &lt;tr&gt;
   &lt;td bgcolor="white"&gt;
-  &lt;mono&gt;optmizer&lt;/mono&gt; 
+  &lt;mono&gt;optimizer&lt;/mono&gt; 
   &lt;/td&gt;
   &lt;td bgcolor="white"&gt;
    The optimizer used to update weights.    
@@ -982,7 +979,7 @@ model %&gt;% evaluate(img_test, digit_test)
 
 ```
 ## $loss
-## [1] 0.922
+## [1] 0.917
 ## 
 ## $accuracy
 ## [1] 0.69
@@ -996,7 +993,7 @@ model %&gt;% evaluate(img_test, digit_test)
 
 class: middle, center
 
-&lt;h1&gt;&lt;a href=https://cdsbasel.github.io/dataanalytics/menu/materials.html&gt;Materials&lt;/a&gt;&lt;/h1&gt;
+&lt;h1&gt;&lt;a href="https://cdsbasel.github.io/neuralnetworks/sessions/DeepFeedForward/DeepFeedForward_practical.html"&gt;Practical&lt;/a&gt;&lt;/h1&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

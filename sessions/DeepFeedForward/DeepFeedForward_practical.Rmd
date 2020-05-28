@@ -109,7 +109,7 @@ source("2_Code/helper.R")
 
 ### B - Data preprocessing
 
-1. Before you get started modeling the data using neural networks, some preprocessing neeeds to be done. First, split into its individual elements that is into `images` and `items` separately for training and test. Use the code below. 
+1. Before you get started modeling the data using neural networks, some preprocessing needs to be done. First, split into its individual elements that is into `images` and `items` separately for training and test. Use the code below. 
 
 ```{r, echo = TRUE}
 # split digit  train
@@ -143,7 +143,7 @@ fashion_train_items_onehot <- to_categorical(fashion_train_items, 10)
 fashion_test_items_onehot <- to_categorical(fashion_test_items, 10)
 ```
 
-6. Use `head(fashion_train_items_onehot)` to inspect the first few rows and compare them to `head(fashion_train_items)`. Do things lign up?
+6. Use `head(fashion_train_items_onehot)` to inspect the first few rows and compare them to `head(fashion_train_items)`. Do things line up?
 
 ### C - Illustrate
 
@@ -191,7 +191,7 @@ net %>% layer_dense(
   )
 ```
 
-3. The correct soluations are `input_shape = 784` to specify that there must be`784` input nodes, one for each pixel, `units =  10` to specify that there must be 10 different output nodes, and `activation = 'softmax'` to specify that the final activation should be a probability that sums to `1` across all output nodes. After you have entered these values, use `summary(net)` to see the model information.
+3. The correct solutions are `input_shape = 784` to specify that there must be`784` input nodes, one for each pixel, `units =  10` to specify that there must be 10 different output nodes, and `activation = 'softmax'` to specify that the final activation should be a probability that sums to `1` across all output nodes. After you have entered these values, use `summary(net)` to see the model information.
 
 ```{r}
 # add layer
@@ -280,7 +280,7 @@ net %>% evaluate(fashion_test_images_serialized,
                  verbose = 0)
 ```
 
-2. The network is slightly worse than in traning, but still pretty good given that guessing performance is only `10%` accuracy. This, again, is very characteristic. In machine learning "simple" models often get a long way towards the desired level of performance. Though, one might question whether a model with 750 parameters can still be considered "simple".
+2. The network is slightly worse than in training, but still pretty good given that guessing performance is only `10%` accuracy. This, again, is very characteristic. In machine learning "simple" models often get a long way towards the desired level of performance. Though, one might question whether a model with 750 parameters can still be considered "simple".
 
 3. Compare the predictions made by the network with the actual fashion labels. Do you note any patterns? Can you maybe understand the errors that the network has made. 
 
@@ -422,7 +422,7 @@ realdeepnet %>% evaluate(fashion_test_images_serialized,
                          verbose = 0)
 ```
 
-3. The model did not fare a whole lot better. The fit performance increased a bit, but the predictive accuracy more or less remained constant. Fit the model again. To do this you can simply run the fit function again, which will lead to a continuation of training from where training ended before. After traning has finished, evaluate the predictive accuracy again.
+3. The model did not fare a whole lot better. The fit performance increased a bit, but the predictive accuracy more or less remained constant. Fit the model again. To do this you can simply run the fit function again, which will lead to a continuation of training from where training ended before. After training has finished, evaluate the predictive accuracy again.
 
 4. Not all too much happening. Though, both fitting and prediction performance went up by another notch. This is again characteristic of neural networks. To really max out on performance, many epochs of training will often be necessary. However, at the same time risks to give the model opportunity to overfit the data. 
 
