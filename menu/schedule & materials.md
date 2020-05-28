@@ -75,14 +75,14 @@ title: Schedule & Materials
   </tr>  
   <tr>
     <td style="padding-right:6px;padding-bottom:6px">1100-1130</td>
-    <td style="padding-right:6px;padding-bottom:6px">Process models</td>
+    <td style="padding-right:6px;padding-bottom:6px">Cognitive models</td>
     <td style="padding-right:6px;padding-bottom:6px">
       <a href="">slides</a>
     </td>
   </tr>
   <tr>
     <td style="padding-right:6px;padding-bottom:6px">1130-1230</td>
-    <td style="padding-right:6px;padding-bottom:6px">Process models II</td>
+    <td style="padding-right:6px;padding-bottom:6px">Cognitive models II</td>
     <td style="padding-right:6px;padding-bottom:6px">
       <a href="">R practical</a>
     </td>
