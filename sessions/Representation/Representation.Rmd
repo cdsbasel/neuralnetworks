@@ -500,7 +500,7 @@ digit[[2]][[2]] = digit[[2]][[2]][1:n]
 
 class: middle, center
 
-<h1><a href=https://cdsbasel.github.io/dataanalytics/menu/materials.html>Materials</a></h1>
+<h1><a href="https://cdsbasel.github.io/neuralnetworks/sessions/Represenetation/Represenetation_practical.html">Practical</a></h1>
 
 
 

@@ -1,19 +1,19 @@
 ---
-title: "Supervised learning"
+title: "Representation"
 author: "<table style='table-layout:fixed;width:100%;border:0;padding:0;margin:0'><col width='10%'><col width='10%'>
   <tr style='border:none'>
     <td style='display:block;width:100%;text-align:left;vertical-align:bottom;padding:0;margin:0;border:none' nowrap>
-      <a href='https://cdsbasel.github.io/dataanalytics/menu/materials.html'>
+      <a href='https://cdsbasel.github.io/neuralnetworks/menu/schedule%20&%20materials.html'>
         <i class='fas fa-clock' style='font-size:.9em;' ></i>
       </a>
-      <a href='https://cdsbasel.github.io/dataanalytics/'>
+      <a href='https://cdsbasel.github.io/neuralnetworks/'>
         <i class='fas fa-home' style='font-size:.9em;'></i>
       </a>
-      <a href='mailto:rui.mata@unibas.ch'>
+      <a href='mailto:dirk.wulff@unibas.ch'>
         <i class='fas fa-envelope' style='font-size: .9em;'></i>
       </a>
-      <a href='https://cdsbasel.github.io/dataanalytics/'>
-        <font style='font-style:normal'>Data Analytics for Psychology and Business</font>
+      <a href='https://cdsbasel.github.io/neuralnetworks/'>
+        <font style='font-style:normal'>Introduction to Neural Networks</font>
       </a>
     </td>
     <td style='width:100%;vertical-align:bottom;text-align:right;padding:0;margin:0;border:none'>
@@ -42,13 +42,43 @@ require(tidyverse)
 require(caret)
 require(party)
 require(partykit)
-college <- read_csv(file = "1_Data/college.csv")
+
+# fashion <- readRDS(file = "../neuralnets/1_Data/fashion.RDS")
+# source("../neuralnets/2_Code/helper.R")
+
+plot_embedding = function(act){
+  par(mar=c(0,0,0,0))
+  image(1:ncol(act), 1:nrow(act), t(act), 
+      col = gray((0:255)/255), 
+      xaxt = 'n', yaxt = 'n')
+  }
+
+plot_cosine = function(cos){
+  par(mar=c(0,0,0,0))
+  cos = (apply(cos, 2, rev))
+  image(1:ncol(cos), 1:nrow(cos), t(cos), 
+      col = gray((0:255)/255), 
+      xaxt = 'n', yaxt = 'n')
+  }
+
+cosine = function(vecs) vecs %*% t(vecs) / (sqrt(rowSums(vecs ** 2)) %*% sqrt(t(rowSums(vecs ** 2))))
+
+plot_cosine_mds = function(cos, items, col = TRUE){
+  norm = function(x) {x = x + abs(min(x)) ; x / max(x)}
+  a = cmdscale(1-norm(cos))
+  par(mar=c(0,0,0,0))
+  if(col) cols = viridis::viridis(length(unique(items))) else cols=rep('black', length(unique(items)))
+  names(cols) = unique(items)
+  plot.new();plot.window(range(a[,1]),range(a[,2]))
+  text(a[,1],a[,2],labels = items, 
+       col = cols[items], cex=.5, font=1)
+  #mtext(expression(italic(z)^2),side=3,cex=1.2)
+  }
 
 ```
 
 <p align="center">
-<img width="100%" src="image/rexthor.png" margin=0><br>
-<font style="font-size:10px">from [xkcd.com](https://xkcd.com/1725/)</font>
+<img width="100%" src="image/repr.png" margin=0>
 </p>
 
 # {.tabset}
@@ -57,857 +87,260 @@ college <- read_csv(file = "1_Data/college.csv")
 
 By the end of this practical you will know how to:
 
-1. Fit regression, decision trees and random forests to training data.
-2. Evaluate model fitting *and* prediction performance in a test set.
-3. Compare the fitting and prediction performance of models.
-4. Use model tuning to improve model performance.
+1. Extract embeddings from weights.
+2. Extract and visualize similarities between embeddings. 
 
 ## Tasks
 
 ### A - Setup
 
-1. Open your `dataanalytics` R project. It should already have the folders `1_Data` and `2_Code`. 
+1. Open your `neuralnets` R project. 
 
-2. Download the [**college**](https://www.dropbox.com/s/qggonowa26gx1qv/college.csv?dl=1) and place it into your `1_Data` folder.  
-
-```{r}
-# Done!
-```
-
-3. Open a new R script. At the top of the script, using comments, write your name and the date. Save it as a new file called `supervised_learning_practical.R` in the `2_Code` folder.  
+2. Open a new R script. Save it as a new file called `representation_practical.R` in the `2_Code` folder.  
 
 ```{r}
 # Done!
 ```
 
-4. Using `library()` load the set of packages for this practical listed in the packages section above. If you are missing packages, install them first using `install.packages()`.
+3. Using `library()` load the the packages `tidyverse` and `keras`
 
 ```{r, echo = TRUE, eval = TRUE, message = FALSE}
 # install.packages("tidyverse")
-# install.packages("caret")
-# install.packages("party")
-# install.packages("partykit")
+# install.packages("keras")
 
-# Load packages necessary for this script
+# Load packages necessary for this exercise
 library(tidyverse)
-library(caret)
-library(party)
-library(partykit)
+library(keras)
 ```
 
-5. Run the code below to load the `college` as a new object.
+
+4. Now `source()` the `helper_2.R` file in your `2_Code` folder.
+
+```{r, echo = TRUE}
+# Load helper.R
+source("2_Code/helper.R")
+```
+
+<br>
+<p style="font-size:20px;background-color:#6ABA9A;color:white;padding-left:20px" align="left" width=100%>
+Part 1: <b>Fashion</b>
+</p>
+
+### B - Fit network
+
+1. Run the code below to load the `fashion.RDS` dataset as a new object.
 
 ```{r, echo = TRUE, eval = FALSE, message = FALSE, warning = FALSE}
-# College data
-college <- read_csv(file = "1_Data/college.csv")
+# MNIST fashion data
+fashion <- readRDS(file = "1_Data/fashion.RDS")
 ```
 
-5. Take a look at the first few rows of each dataframe by printing them to the console.
+2. Remind yourself of the contents of the `fashion` object using `str()`. 
 
 ```{r, echo = TRUE}
-# Print dataframes to the console
-college
+# Inspect contents
+str(digit)
 ```
 
-6. Explore the data set using `View()` and `names()` to get a feel for the variables contained within it. Also see the *Dataset* tab for feature descriptions. 
-
-### B - Data preparation
-
-1. Before we get started you need to do some data preparation. First order of business: change all character variables to factors using the code below. 
-
-```{r, eval = TRUE, echo = TRUE}
-# Convert all character columns to factor
-college <- college %>% mutate_if(is.character, factor)
-```
-
-2. Now, before you get started with fitting models, it's time to split off a test set. Use the code below to apply a 80/20 split. Note the the function `createDataPartition` needs to be supplied with the criterion, which is the graduation rate (`Grad.Rate`).     
-
-```{r, echo = TRUE, eval = FALSE}
-# split index
-train_index <- createDataPartition(XX$XX, p = .2, list = FALSE)
-
-# train and test sets
-college_train <- XX %>% slice(train_index)
-college_test  <- XX %>% slice(-train_index)
-```
-
-```{r}
-# split index
-train_index <- createDataPartition(college$Grad.Rate, p = .2, list = FALSE)
-
-# train and test sets
-college_train <- college %>% slice(train_index)
-college_test  <- college %>% slice(-train_index)
-```
-
-
-### C - Fitting
-
-1. In fitting models, `caret` needs to be supplied with a `trainControl()` object. To start with define an object called `ctrl_none` that sets the training control method to `"none"`.
-
-```{r, echo = TRUE, eval = FALSE}
-# Set training method to "none" for simple fitting
-ctrl_none <- trainControl(method = "XX")
-```
-
-```{r}
-ctrl_none <- trainControl(method = "none")
-```
-
-
-#### Regression
-
-2. Using `train()` fit a regression model called `grad_glm` predicting `Grad.Rate` as a function of all features. Specifically,...
-
-- for the `form` argument, use `Grad.Rate ~ .`.
-- for the `data` argument, use  `college_train`t.
-- for the `method` argument, use `method = "glm"`.
-- for the `trControl` argument, use your `ctrl_none`.
-
-```{r, echo = TRUE, eval = FALSE}
-grad_glm <- train(form = XX ~ .,
-                  data = XX,
-                  method = "XX",
-                  trControl = ctrl_none)
-```
-
-
-```{r}
-grad_glm <- train(form = Grad.Rate ~ .,
-                  data = college_train,
-                  method = "glm",
-                  trControl = ctrl_none)
-```
-
-3. Explore your `grad_glm` object by looking at `grad_glm$finalModel` and using `summary()`, what do you find?
-
-```{r, eval = FALSE, echo = TRUE}
-grad_glm$XX
-summary(XX)
-```
-
-```{r}
-grad_glm$finalModel
-summary(grad_glm)
-```
-
-4. Using `predict()` save the fitted values of `grad_glm` object as `glm_fit`.
-
-```{r, echo = TRUE, eval = FALSE}
-# Save fitted values of regression model
-glm_fit <- predict(XX)
-```
-
-```{r}
-glm_fit <- predict(grad_glm)
-```
-
-5. Print your `glm_fit` object, look at summary statistics with `summary(glm_fit)`, and create a histogram with `hist()` do they make sense?
-
-```{r, echo = TRUE, eval = FALSE}
-# Explore regression model fits
-XX
-summary(XX)
-hist(XX)
-```
-
-```{r}
-glm_fit[1:10]   # Only printing first 10
-summary(glm_fit)
-hist(glm_fit)
-```
-
-#### Decision Trees
-
-6. Using `train()`, fit a decision tree model called `grad_rpart`. Specifically,...
-
-- for the `form` argument, use `Grad.Rate ~ .`.
-- for the `data` argument, use  `college_train`.
-- for the `method` argument, use `method = "rpart"`.
-- for the `trControl` argument, use your `ctrl_none`.
-- for the `tuneGrid` argument, use `cp = 0.01` to specify the value of the complexity parameter. This is a pretty low value which means your trees will be, relatively, complex, i.e., deep.
-
-```{r, echo = TRUE, eval = FALSE}
-grad_rpart <- train(form = XX ~ .,
-                  data = XX,
-                  method = "XX",
-                  trControl = XX,
-                  tuneGrid = expand.grid(cp = XX))
-```
-
-```{r}
-grad_rpart <- train(form = Grad.Rate ~ .,
-                  data = college_train,
-                  method = "rpart",
-                  trControl = ctrl_none,
-                  tuneGrid = expand.grid(cp = .01)) 
-```
-
-7. Explore your `grad_rpart` object by looking at `grad_rpart$finalModel` and plotting it with `plot(as.party(grad_rpart$finalModel))`, what do you find?
-
-```{r}
-grad_rpart$finalModel
-plot(as.party(grad_rpart$finalModel))
-```
-
-
-8. Using `predict()`, save the fitted values of `grad_rpart` object as `_fit`.
-
-```{r, echo = TRUE, eval = FALSE}
-# Save fitted values of decision tree model
-rpart_fit <- predict(XX)
-```
-
-```{r}
-rpart_fit <- predict(grad_rpart)
-```
-
-9. Print your `rpart_fit` object, look at summary statistics with `summary()`, and create a histogram with `hist()`. Do they make sense?
-
-```{r, echo = TRUE, eval = FALSE}
-# Explore decision tree fits
-XX
-summary(XX)
-hist(XX)
-```
-
-```{r}
-rpart_fit[1:10] # Only first 10
-summary(rpart_fit)
-hist(rpart_fit)
-```
-
-#### Random Forests
-
-10. Using `train()`, fit a random forest model called `grad_rf`. Speicifically,... 
-
-- for the `form` argument, use `Grad.Rate ~ .`.
-- for the `data` argument, use  `college_train`.
-- for the `method` argument, use `method = "rf"`.
-- for the `trControl` argument, use your `ctrl_none`.
-- for the `mtry` parameter, use `mtry` = 2. This is a relatively low value, so the forest will be very diverse.
-
-```{r, echo = TRUE, eval = FALSE}
-grad_rf <- train(form = XX ~ .,  
-                 data = XX,
-                 method = "XX",
-                 trControl = XX,
-                 tuneGrid = expand.grid(mtry = XX))  
-```
-
-```{r}
-grad_rf <- train(form = Grad.Rate ~ .,  
-                 data = college_train,
-                 method = "rf",
-                 trControl = ctrl_none,
-                 tuneGrid = expand.grid(mtry = 2))  
-```
-
-11. Using `predict()`, save the fitted values of `grad_rf` object as `rf_fit`.
-
-```{r, echo = TRUE, eval = FALSE}
-# Save fitted values of random forest model
-rf_fit <- predict(XX)
-```
-
-```{r}
-rf_fit <- predict(grad_rf)
-```
-
-12. Print your `rf_fit` object, look at summary statistics with `summary()`, and create a histogram with `hist()`. Do they make sense?
-
-```{r, echo = TRUE, eval = FALSE}
-# Explore random forest fits
-XX
-summary(XX)
-hist(XX)
-```
-
-```{r}
-rf_fit[1:10]    # Only first 10
-summary(rf_fit)
-hist(rf_fit)
-```
-
-### D - Evaluate fitting performance
-
-1. Save the true training criterion values (`college_train$Grad.Rate`) as a vector called `criterion_train`.
-
-```{r, echo = TRUE, eval = FALSE}
-# Save training criterion values
-criterion_train <- XX$XX
-```
-
-```{r}
-criterion_train <- college_train$Grad.Rate
-```
-
-2. Using `postResample()`, determine the fitting performance of each of your models separately. Make sure to set your `criterion_train` values to the `obs` argument, and your true model fits `XX_fit` to the `pred` argument.
-
-```{r, echo = TRUE, eval = FALSE}
-# Regression
-postResample(pred = XX, obs = XX)
-
-# Decision Trees
-postResample(pred = XX, obs = XX)
-
-# Random Forests
-postResample(pred = XX, obs = XX)
-```
-
-```{r}
-# Regression
-postResample(pred = glm_fit, obs = criterion_train)
-
-# Decision Trees
-postResample(pred = rpart_fit, obs = criterion_train)
-
-# Random Forests
-postResample(pred = rf_fit, obs = criterion_train)
-```
-
-3. Which one had the best fit? What was the fitting MAE of each model?
-
-
-### E - Evaluate prediction perforamnce
-
-1. Save the criterion values from the test data set `college_test$Grad.Rate` as a new vector called `criterion_test`.
-
-```{r, echo = TRUE, eval = FALSE}
-# Save criterion values
-criterion_test <- XX$XX
-```
-
-```{r}
-# Save criterion values
-criterion_test <- college_test$Grad.Rate
-```
-
-2. Using `predict()`, save the predicted values of each model for the test data `college_test` as `glm_pred`, `rpart_pred` and `rf_pred`. Set the `newdata` argument to the test data.
-
-```{r, echo = TRUE, eval = FALSE}
-# Regression
-glm_pred <- predict(XX, newdata = XX)
-
-# Decision Trees
-rpart_pred <- predict(XX, newdata = XX)
-
-# Random Forests
-rf_pred <- predict(XX, newdata = XX)
-```
-
-```{r}
-# Regression
-glm_pred <- predict(grad_glm, newdata = college_test)
-
-# Decision Trees
-rpart_pred <- predict(grad_rpart, newdata = college_test)
-
-# Random Forests
-rf_pred <- predict(grad_rf, newdata = college_test)
-```
-
-3. Using `postResample()`, determine the *prediction* performance of each of your models against the test criterion `criterion_test`. 
-```{r, echo = TRUE, eval = FALSE}
-# Regression
-postResample(pred = XX, obs = XX)
-
-# Decision Trees
-postResample(pred = XX, obs = XX)
-
-# Random Forests
-postResample(pred = XX, obs = XX)
-```
-
-```{r}
-# Regression
-postResample(pred = glm_pred, obs = criterion_test)
-
-# Decision Trees
-postResample(pred = rpart_pred, obs = criterion_test)
-
-# Random Forests
-postResample(pred = rf_pred, obs = criterion_test)
-```
-
-4. How does each model's *prediction or test* performance (on the `XX_test` data) compare to its *fitting or training* performance (on the `XX_train` data)? Is it worse? Better? The same? What does the change tell you about the models?
-
-```{r}
-# The regression goodness of fit stayed the most constant. The random forest one droped considerably.
-```
-
-5. Which of the three models has the best prediction performance?
-
-```{r}
-# The random forest predictions are still the most accurate.
-```
-
-### F - Tuning
-
-1. Now let's see whether we can crank out more performance by tuning the models during fitting. To do set, first create a new control object called `ctrl_cv` that sets the training `method` to cross validation `"cv"` and the number of slices to `10`. Use this new control object to re-fit the three models. 
-
-```{r, echo = TRUE, eval = FALSE}
-# Set training method to "none" for simple fitting
-ctrl_cv <- trainControl(method = "XX", number = XX)
-```
-
-```{r}
-ctrl_cv <- trainControl(method = "cv", number = 10)
-```
-
-#### LASSO Regression
-
-2. Before you can fit a lasso regression model, you need to specify which values of the lambda penalty parameter we want to try. Using the code below, create a vector called `lambda_vec` which contains 100 values spanning a wide range, from very close to 0 to 1,000.
+3. Use the code below to run a two-hidden layer neural network predicting the fashion item. 
 
 ```{r, echo = TRUE}
-# Vector of lambda values to try
-lambda_vec <- 10 ^ (seq(-4, 4, length = 100))
+
+# PREPARATIONS -------
+
+# fashion items
+fashion_labels <- c('T-shirt/top','Trouser','Pullover','Dress','Coat', 
+                   'Sandal','Shirt','Sneaker','Bag','Ankle boot')
+
+# split digit  train
+c(fashion_train_images, fashion_train_items) %<-% fashion$train
+
+# split digit  test
+c(fashion_test_images, fashion_test_items) %<-% fashion$test
+
+# reshape images
+fashion_train_images_serialized <- array_reshape(fashion_train_images, c(nrow(fashion_train_images), 784))
+fashion_test_images_serialized <- array_reshape(fashion_test_images, c(nrow(fashion_test_images), 784))
+
+# rescale images
+fashion_train_images_serialized <- fashion_train_images_serialized / 255
+fashion_test_images_serialized <- fashion_test_images_serialized / 255
+
+# expand criterion
+fashion_train_items_onehot <- to_categorical(fashion_train_items, 10)
+fashion_test_items_onehot <- to_categorical(fashion_test_items, 10)
+
+# MODELING -------
+
+# initialize deepnet
+net <- keras_model_sequential()
+
+# add layer
+net %>% 
+  layer_dense(input_shape = 784, units = 256, activation = "relu") %>% 
+  layer_dense(units = 144, activation = "relu") %>% 
+  layer_dense(units = 10, activation = "softmax")
+
+# model information
+summary(net)
+
+# loss, optimizers, & metrics
+net %>% compile(
+  optimizer = 'adam', 
+  loss = 'categorical_crossentropy',
+  metrics = c('accuracy')
+  )
+
+# fit network
+net %>% fit(
+  x = fashion_train_images_serialized, 
+  y = fashion_train_items_onehot,
+  epochs = 10
+  )
+
 ```
 
-3. Fit a lasso regression model predicting `Grad.Rate` as a function of all features. Specifically,...
+### C - Fashion embeddings
 
-- set the formula to `Grad.Rate ~ .`.
-- set the data to `college_train`.
-- set the method to `"glmnet"` for regularized regression.
-- set the train control argument to `ctrl_cv`.
-- set the `preProcess` argument to `c("center", "scale")` to make sure the variables are standarised when estimating the beta weights, which is specifically necessary for regularized regression.
-- set the tuneGrid argument such that `alpha` is 1 (for lasso regression), and lambda is vector you specified in `lambda_vec` (see below)
-
-```{r, echo = TRUE, eval = FALSE}
-# lasso regression
-grad_tune_glm <- train(form = XX ~ .,
-                        data = XX,
-                        method = "XX",
-                        trControl = XX,
-                        preProcess = c("XX", "XX"),  
-                        tuneGrid = expand.grid(alpha = 1, 
-                                               lambda = lambda_vec))
-```
-
-```{r}
-# lasso regression
-grad_tune_glm <- train(form = Grad.Rate ~ .,
-                        data = college_train,
-                        method = "glmnet",
-                        trControl = ctrl_cv,
-                        preProcess = c("center", "scale"), 
-                        tuneGrid = expand.grid(alpha = 1,  
-                                               lambda = lambda_vec))
-```
-
-4. Print your `grad_tune_glm` object. What do you see?
-
-```{r}
-grad_tune_glm
-```
-
-5. Plot your `grad_tune_glm` object. What do you see? Which value of the regularization parameter seems to be the best?
-
-```{r, echo = TRUE, eval = FALSE}
-# Plot grad_tune_glm object
-plot(XX)
-```
-
-```{r}
-plot(grad_tune_glm)
-```
-
-6. What were your final regression model coefficients for the best lambda value? Find them by running the following code.
+1. Use the code below to extract the estimated weights and biases of the network. 
 
 ```{r, echo = TRUE}
-# Get coefficients from best lambda value
-coef(grad_tune_glm$finalModel, 
-     grad_tune_glm$bestTune$lambda)
+# extract weights
+weights <- get_weights(net)
+ 
 ```
 
-#### Decision tree
-
-7. Before fitting the decision tree, specify which values of the complexity parameter `cp` to try. Using the code below, create a vector called `cp_vec` which contains 100 values between 0 and 1.
-
-```{r}
-# Determine possible values of the complexity parameter cp
-cp_vec <- seq(from = 0, to = 1, length = 100)
-```
-
-8. Fit a decision tree model predicting `Grad.Rate` as a function of all features. Specifically,...
-
-- set the formula to `Grad.Rate ~ .`.
-- set the data to `college_train`.
-- set the method to `"rpart"`.
-- set the train control argument to `ctrl_cv`.
-- set the tuneGrid argument with all `cp` values you specified in `cp_vec`.
-
-```{r, echo = TRUE, eval = FALSE}
-# Decision tree 
-grad_tune_rpart <- train(form = XX ~ .,
-                         data = XX,
-                         method = "XX",
-                         trControl = XX,
-                         tuneGrid = expand.grid(cp = cp_vec))
-```
-
-```{r}
-# Decision tree 
-grad_tune_rpart <- train(form = Grad.Rate ~ .,
-                  data = college_train,
-                  method = "rpart",
-                  trControl = ctrl_cv,
-                  tuneGrid = expand.grid(cp = cp_vec))
-```
-
-9. Print your `grad_tune_rpart` object. What do you see?
-
-```{r}
-grad_tune_rpart
-```
-
-10. Plot your `grad_tune_rpart` object. What do you see? Which value of the complexity parameter seems to be the best?
-
-```{r, echo = TRUE, eval = FALSE}
-# Plot grad_tune_rpart object
-plot(XX)
-```
-
-```{r}
-plot(grad_tune_rpart)
-```
-
-11. Print the best value of `cp` by running the following code. Does this match what you saw in the plot above?
+2. Using `str()` inspect the structure of the `weights` object. Do the contents line up with your expectations?
 
 ```{r, echo = TRUE}
-# Print best regularisation parameter
-grad_tune_rpart$bestTune$cp
+# inspect weights
+str(weights)
 ```
 
-12. Plot your final decision tree using the following code:
+3. There are six elements. Three containing the weights (elements 1, 3, 5) and three containing the biases (elements 2, 4, 6).  
+
+4. Use the first elements in `weights` to calculate the activation patterns, aka the embeddings, at the first  layers for the first `1,000` fashion items, ignoring the bias and the activation function. You'll see, this can be easily done using matrix multiplication `%*%`. 
 
 ```{r, echo = TRUE}
-# Visualise your trees
-plot(as.party(grad_tune_rpart$finalModel)) 
+# inspect weights
+embedding <- fashion_train_images_serialized[1:1000, ] %*% weights[[1]]
 ```
 
-#### Random forest
+5. Assess the dimensionality of `embedding` using `dim()`. Correct numbers of rows and columns?
 
-13. Before fitting a random forest model, specify which values of the diversity parameter `mtry` to try. Using the code below, create a vector called `mtry_vec` which is a sequence of numbers from 1 to 10.
-
-```{r}
-# Determine possible values of mtry
-mtry_vec <- 1:10
-```
-
-14. Fit a random forest model predicting `Grad.Rate` as a function of all features. Specifically,...
-
-- set the formula to `Grad.Rate ~ .`.
-- set the data to `college_train`.
-- set the method to `"rf"`.
-- set the train control argument to `ctrl_cv`.
-- set the tuneGrid argument such that mtry can take on the values you defined in `mtry_vec`.
-
-```{r, echo = TRUE, eval = FALSE}
-# Random Forest 
-grad_tune_rf <- train(form = XX ~ .,
-                      data = XX,
-                      method = "XX",
-                      trControl = XX,
-                      tuneGrid = expand.grid(mtry = mtry_vec))
-```
-
-```{r}
-# Random Forest 
-grad_tune_rf <- train(form = Grad.Rate ~ .,
-                   data = college_train,
-                   method = "rf",
-                   trControl = ctrl_cv,
-                   tuneGrid = expand.grid(mtry = mtry_vec))
-```
-
-15. Print your `grad_tune_rf` object. What do you see?
-
-```{r}
-grad_tune_rf
-```
-
-
-16. Plot your `grad_tune_rf` object. What do you see? Which value of the regularization parameter seems to be the best?
-
-```{r, echo = TRUE, eval = FALSE}
-# Plot grad_rf object
-plot(XX)
-```
-
-```{r}
-plot(grad_tune_rf)
-```
-
-
-17. Print the best value of `mtry` by running the following code. Does this match what you saw in the plot above?
+6. Use the `plot_embedding()` function, which you loaded earlier when you sourced the `helper_2.R` file, to visualize the activations. Rows in the plot will be the `1,000` fashion items and columns the `256` nodes of the embedding at the first hidden layer. Looks a bit messy right?
 
 ```{r, echo = TRUE}
-# Print best mtry parameter
-grad_tune_rf$bestTune$mtry
+# plot activation
+plot_embedding(embedding)
 ```
 
-### F - Evaluation prediction performance of tuned models
+7. To bring some order into matters extract the first `1000` fashion items from `fashion_train_items` and then use those to order the rows in `embedding`.  
 
-1. Using `predict()`, save the predicted values of each tuned model for the test data `college_test` as `glm_tune_pred`, `rpart_tune_pred` and `rf_tune_pred`. Set the `newdata` argument to the test data.
+```{r, echo = TRUE}
+# extract fashon items
+items <- fashion_train_items[1:1000]
 
-```{r, echo = TRUE, eval = FALSE}
-# Regression
-glm_tune_pred <- predict(XX, newdata = XX)
-
-# Decision Trees
-rpart_tune_pred <- predict(XX, newdata = XX)
-
-# Random Forests
-rf_tune_pred <- predict(XX, newdata = XX)
+# order activations
+embedding <- embedding[order(items), ]
 ```
 
-```{r}
-# Regression
-glm_tune_pred <- predict(grad_tune_glm, newdata = college_test)
+8. Now use again `plot_embedding()` to plot the embedding. Things should look a lot clearer. The bands correspond to the different items, with the `0`-item (`"T-shirt/top"`) at the bottom and the `9`-item (`"Angle boot"`) at the top. 
 
-# Decision Trees
-rpart_tune_pred <- predict(grad_tune_rpart, newdata = college_test)
+### D - Fashion similarities
 
-# Random Forests
-rf_tune_pred <- predict(grad_tune_rf, newdata = college_test)
+1. Use the `cosine()` function from the `helper_2.R` file to determine the similarities between the fashion item vectors in the embedding. Cosine determines the angle between the locations of two fashion items in the `256` dimensional space that is the embedding. Cosine is algebraically close to the standard correlation coefficient. 
+
+```{r, echo = TRUE}
+# calculate cosine similarities
+fashion_cosines <- cosine(embedding)
+
+plot_cosine(fashion_cosines)
 ```
 
-3. Using `postResample()`, determine the *prediction* performance of each of your models against the test criterion `criterion_test`.
+3. Now use the `plot_cosine` function (also from the `helper_2.R` file) to plot the matrix of cosine values. The categories `0` to `9` go from top to bottom and from left to right. Light grey values indicate high cosine similarity, darker ones low cosine similarity. Try to make sense of the plot. 
 
-```{r, echo = TRUE, eval = FALSE}
-# Regression
-postResample(pred = XX, obs = XX)
-
-# Decision Trees
-postResample(pred = XX, obs = XX)
-
-# Random Forests
-postResample(pred = XX, obs = XX)
+```{r, echo = TRUE}
+# Plot cosine similarities
+plot_cosine(fashion_cosines)
 ```
 
-```{r}
-# Regression
-postResample(pred = glm_tune_pred, obs = criterion_test)
+4. The cosine similarity plot shows several interesting patterns. First, items of one item type, as should be, are consistently more similar to themselves than to other item type. This can be gleaned from fact that the rectangles in the diagonal are always lightest in their respective columns. Second, some items types are closer to each other than others are. This can be gleaned from the fact that there are other light rectangle off the diagonal. Use the code below to visualize this information in a more intuitive way using multi-dimensional scaling. Yes, there is a function ready, `plot_cosine_mds()`. Try to make sense of the plot.    
 
-# Decision Trees
-postResample(pred = rpart_tune_pred, obs = criterion_test)
 
-# Random Forests
-postResample(pred = rf_tune_pred, obs = criterion_test)
+```{r, echo = TRUE}
+# calculate cosine similarities
+plot_cosine_mds(fashion_cosines, fashion_labels[items[order(items)]+1])
 ```
 
-4. How does each model's tuned prediction performance compare to its prediction performance without tuning? Is it worse? Better? The same? What does the change tell you about the models?
+### E - Understanding prediction errors
 
-5. Which of the three models has the best prediction performance?
+1. The cosine mds plot confirmed both the overall good separation of fashion items, but also that some item types are more similar to each other than others. Importantly, these patterns should translate into the errors that the model makes. Use the code below to determine the confusion matrix for the predictions of the test set. Do the confusions in prediction line up with the overlap of fashion items in the cosine mds?
 
-
-### X - Optional: Classification
-
-1. Evaluate which model can best predict, whether a school is `Private`. Note, it is not necessary to again perform the splitting. Jump right in using the existing `college_train` and `college_test` datasets. You can follow the same steps as above. Simply change the criterion to `Private` and use `confusionMatrix()` instead of `postResample()`.
-
-## Examples
-
-```{r, eval = FALSE, echo = TRUE}
-# Fitting, tune evaluating regression, decision trees, and random forests
-
-# Step 0: Load packages-----------
-library(tidyverse)  
-library(caret)    
-library(partykit) 
-library(party)       
-
-# Step 1: Load, Clean, Split, and Explore data ----------------------
-
-# mpg data
-data(mpg)
-
-# Explore data
-data_train        
-View(mpg) 
-dim(mpg)   
-names(mpg) 
-
-# Convert all characters to factor
-mpg <- mpg %>% mutate_if(is.character, factor)
-
-# split index
-train_index <- createDataPartition(mpg$hwy, p = .2, list = FALSE)
-
-# train and test sets
-data_train <- mpg %>% slice(train_index)
-data_test  <- mpg %>% slice(-train_index)
-
-# Step 2: Define training control parameters -------------
-
-# Set method = "none" for now 
-ctrl_none <- trainControl(method = "none") 
-
-# Step 3: Train model: -----------------------------
-
-# Regression -------
-
-# Fit model
-hwy_glm <- train(form = hwy ~ year + cyl + displ,
-                 data = data_train,
-                 method = "glm",
-                 trControl = ctrl_none)
-
-# Look at summary information
-hwy_glm$finalModel
-summary(hwy_glm)
-
-# Save fitted values
-glm_fit <- predict(hwy_glm)
-
-#  Calculate fitting accuracies
-postResample(pred = glm_fit, 
-             obs = criterion_train)
-
-# Decision Trees -------
-
-# Fit model
-hwy_rpart <- train(form = hwy ~ year + cyl + displ,
-                data = data_train,
-                method = "rpart",
-                trControl = ctrl_none,
-                tuneGrid = expand.grid(cp = .01))   # Set complexity parameter
-
-# Look at summary information
-hwy_rpart$finalModel
-plot(as.party(hwy_rpart$finalModel))   # Visualise your trees
-
-# Save fitted values
-rpart_fit <- predict(hwy_rpart)
-
-# Calculate fitting accuracies
-postResample(pred = rpart_fit, obs = criterion_train)
-
-# Random Forests -------
-
-# fit model
-hwy_rf <- train(form = hwy ~ year + cyl + displ,
-                data = data_train,
-                method = "rf",
-                trControl = ctrl_none,
-                tuneGrid = expand.grid(mtry = 2))   # Set number of features randomly selected
-
-# Look at summary information
-hwy_rf$finalModel
-
-# Save fitted values
-rf_fit <- predict(hwy_rf)
-
-# Calculate fitting accuracies
-postResample(pred = rf_fit, obs = criterion_train)
-
-
-# Step 5: Evaluate prediction ------------------------------
-
-# Define criterion_train
-criterion_test <- data_test$hwy
-
-# Save predicted values
-glm_pred <- predict(hwy_glm, newdata = data_test)
-rpart_pred <- predict(hwy_rpart, newdata = data_test)
-rf_pred <- predict(hwy_rf, newdata = data_test)
-
-#  Calculate fitting accuracies
-postResample(pred = glm_pred, obs = criterion_test)
-postResample(pred = rpart_pred, obs = criterion_test)
-postResample(pred = rf_pred, obs = criterion_test)
-
-# Step 6: Modeling tuning ------------------------------
-
-# Use 10-fold cross validation
-ctrl_cv <- trainControl(method = "cv", 
-                        number = 10) 
-
-# Lasso
-lambda_vec <- 10 ^ seq(-3, 3, length = 100)
-hwy_lasso <- train(form = hwy ~ year + cyl + displ,
-                   data = data_train,
-                   method = "glmnet",
-                   trControl = ctrl_cv,
-                   preProcess = c("center", "scale"),  
-                   tuneGrid = expand.grid(alpha = 1,  
-                                          lambda = lambda_vec))
-
-# decision tree
-cp_vec <- seq(0, .1, length = 100)
-hwy_rpart <- train(form = hwy ~ year + cyl + displ,
-                   data = data_train,
-                   method = "rpart",
-                   trControl = ctrl_cv,
-                   tuneGrid = expand.grid(cp = cp_vec))
-
-# decision tree
-mtry_vec <- seq(2, 5, 1)
-hwy_rpart <- train(form = hwy ~ year + cyl + displ,
-                   data = data_train,
-                   method = "rf",
-                   trControl = ctrl_cv,
-                   tuneGrid = expand.grid(mtry = mtry_vec))
-
-# Step 7: Evaluate tuned models ------------------------------
-
-# you know how ... 
-
+```{r, echo = TRUE}
+# prediction confusion matrix
+pred = net %>% predict_classes(fashion_test_images_serialized)
+table(fashion_labels[fashion_test_items+1], fashion_labels[pred+1])
 ```
 
+2. Yes, they do. The biggest prediction errors occur for the types `Coat`, `Pullover`, and `Shirt`, which in the cosine mds pretty much sit on top of each other. 
 
-## Dataset
+### F - Optional: Deeper layers
 
-|File  |Rows | Columns |
-|:----|:-----|:------|
-|[college.csv](https://www.dropbox.com/s/qggonowa26gx1qv/college.csv?dl=1)| 777 | 18|
+1. Carry out the same analyses as above, however, using the embedding at the second layer, which are little more complicated to determine, as the first layer's biases and the activation function need to be taken into account.  
 
-The `college` data are taken from the `College` dataset in the `ISLR` package. They contain statistics for a large number of US Colleges from the 1995 issue of US News and World Report.
+```{r, echo = TRUE}
+# second layer embedding
+relu = function(z) {z[z < 0] = 0; z}
+z_1 <- cbind(img_train[1:1000,],1) %*% rbind(weights[[1]], weights[[2]])
+a_1 <- t(apply(z_1, 1, relu))
+embedding <- a_1 %*% weights[[3]]
+```
 
-#### Variable description
+<br>
+<p style="font-size:20px;background-color:#6ABA9A;color:white;padding-left:20px" align="left" width=100%>
+Part 2: <b>Words</b>
+</p>
 
-| Name | Description |
-|:-------------|:-------------------------------------|
-| `Private` | A factor with levels No and Yes indicating private or public university. |
-| `Apps` | Number of applications received.  |
-| `Accept` | Number of applications accepted. |
-| `Enroll` | Number of new students enrolled. |
-| `Top10perc` | Pct. new students from top 10% of H.S. class. |
-| `Top25perc` | Pct. new students from top 25% of H.S. class. |
-| `F.Undergrad` | Number of fulltime undergraduates. |
-| `P.Undergrad` | Number of parttime undergraduates. |
-| `Outstate` | Out-of-state tuition. |
-| `Room.Board` | Room and board costs. |
-| `Books` | Estimated book costs. |
-| `Personal` | Estimated personal spending. |
-| `PhD` | Pct. of faculty with Ph.D.'s. |
-| `Terminal` | Pct. of faculty with terminal degree. |
-| `S.F.Ratio` | Student/faculty ratio. |
-| `perc.alumni` | Pct. alumni who donate. |
-| `Expend` | Instructional expenditure per student. |
-| `Grad.Rate` | Graduation rate. |
+### G - Word embeddings
 
+1. Run the code below to load the `capital.RDS` dataset as a new object.
 
-## Functions
+```{r, echo = TRUE, eval = FALSE, message = FALSE, warning = FALSE}
+# load embeddings
+capital <- readRDS(file = "1_Data/capital.RDS")
+```
 
-### Packages
+2. The dataset contains a pre-learned embedding on the basis of all of Wikipedia and a large website corpus. Use `rownames()` inspect to words for which embeddings are present.   
+```{r, echo = TRUE}
+# rownames of capital
+rownames(capital)
+```
 
-|Package| Installation|
-|:------|:------|
-|`tidyverse`|`install.packages("tidyverse")`|
-|`caret`|`install.packages("caret")`|
-|`partykit`|`install.packages("partykit")`|
-|`party`|`install.packages("party")`|
+3. The dataset contains embeddings for a bunch of capitals and the respective countries. Use `plot_embedding()` to plot the capital embeddings.
 
-### Functions
+```{r, echo = TRUE}
+# plot capital embedding
+plot_embedding(capital)
+```
 
-| Function| Package | Description |
-|:---|:------|:---------------------------------------------|
-| `trainControl()`|`caret`|    Define modelling control parameters| 
-| `train()`|`caret`|    Train a model|
-| `predict(object, newdata)`|`stats`|    Predict the criterion values of `newdata` based on `object`|
-| `postResample()`|`caret`|   Calculate aggregate model performance in regression tasks|
-| `confusionMatrix()`|`caret`|   Calculate aggregate model performance in classification tasks| 
+4. Not much to see. Maybe a little bit of banding for the pairs of words belonging to one country, but certainly not much. Calculate the cosine similarities and plot them. 
+
+```{r, echo = TRUE}
+# plot capital
+capital_cosine = cosine(capital)
+plot_cosine(capital_cosine)
+```
+
+5. The cosine plot makes clear that corresponding capitals and countries are clearly more related to each other than non-corresponding capitals and countries. However, as before, there are also some high cosines off-diagonal. Bring more light into the matter by creating another cosine mds plot.    
+
+```{r, echo = TRUE}
+# plot capital
+capital_cosine = cosine(capital)
+plot_cosine_mds(capital_cosine, rownames(capital_cosine), col = F)
+```
+
+5. The cosine mds plot shows several interesting patterns. First, countries and capitals are clearly separated, suggesting that countries among themselves and capitals among themselves are more strongly related than between them. Second, countries and capitals seem to be the mirror image of each other, suggesting that there the embedding has "understood" the link between them. Third, countries and capitals are clearly arranged according to geography, suggesting that the embedding has also "understood" the layout of the world. 
 
 ## Resources
 
@@ -915,8 +348,7 @@ The `college` data are taken from the `College` dataset in the `ISLR` package. T
 
 <figure>
 <center>
-<a href="https://github.com/rstudio/cheatsheets/raw/master/caret.pdf">
-  <img src="https://www.rstudio.com/wp-content/uploads/2015/01/caret-cheatsheet.png" alt="Trulli" style="width:70%"></a><br>
- <font style="font-size:10px"> from <a href= "https://github.com/rstudio/cheatsheets/raw/master/caret.pdf</figcaption">github.com/rstudio</a></font>
+<a href="https://github.com/rstudio/cheatsheets/raw/master/keras.pdf">
+  <img src="image/keras_cheat.png" alt="Trulli" style="width:70%"></a><br>
+ <font style="font-size:10px"> from <a href= "https://rstudio.com/resources/cheatsheets/">github.com/rstudio</a></font>
 </figure>
-
