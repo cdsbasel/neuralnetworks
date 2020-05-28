@@ -3,6 +3,11 @@ layout: page
 title: Schedule & Materials
 ---
 
+## R project
+
+<a href="https://www.dropbox.com/s/ded0c40nq89g21q/neuralnets.zip?dl=1"><b>Download</b></a>
+
+
 ## Day 1
 
 <table cellspacing="0" cellpadding="0">

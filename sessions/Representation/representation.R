@@ -272,7 +272,7 @@ capitals = tolower(capitals)
 capital_vecs = vecs[rownames(vecs) %in% c(capitals),]
 
 
-cosine = function(vecs) vecs %*% t(vecs) / (rowSums(vecs ** 2) %*% t(rowSums(vecs ** 2)))
+cosine = function(vecs) vecs %*% t(vecs) / (sqrt(rowSums(vecs ** 2)) %*% t(sqrt(rowSums(vecs ** 2))))
 
 cos = cosine(vecs)
 
