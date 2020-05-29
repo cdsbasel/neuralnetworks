@@ -351,7 +351,7 @@ deepnet %>% evaluate(fashion_test_images_serialized,
 
 4. The test performance has improved by about 7% points. Not bad. Also the drop from fitting to testing performance is small suggesting minimal overfitting of the data. Let's the see how far we can take it. Let's build a real deep network  
 
-### H - Build & evaluate real deep network
+### I - Build & evaluate real deep network
 
 1. Build a real deep network with two additional 256-node layers, two additional 128-node layer, and three additional layers 64-node layers. In the end, there should be three layers of each kind, sorted, as before, in descending order of the number of nodes. Take a look at the summary. 
 
@@ -426,7 +426,7 @@ realdeepnet %>% evaluate(fashion_test_images_serialized,
 
 4. Not all too much happening. Though, both fitting and prediction performance went up by another notch. This is again characteristic of neural networks. To really max out on performance, many epochs of training will often be necessary. However, at the same time risks to give the model opportunity to overfit the data. 
 
-### I - Battling overfitting
+### J - Battling overfitting
 
 1. To begin with create a `crazycomplexnet` which should have twice as many nodes in the first hidden layer than there are input nodes. Add as many hidden layers as you like and then run the network for `20` epochs for a batch size of `100` and evaluate the network's performance. 
 

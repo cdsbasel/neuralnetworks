@@ -397,8 +397,8 @@ summary(deepnet)</code></pre>
 <li><p>The test performance has improved by about 7% points. Not bad. Also the drop from fitting to testing performance is small suggesting minimal overfitting of the data. Let’s the see how far we can take it. Let’s build a real deep network</p></li>
 </ol>
 </div>
-<div id="h---build-evaluate-real-deep-network" class="section level3">
-<h3>H - Build &amp; evaluate real deep network</h3>
+<div id="i---build-evaluate-real-deep-network" class="section level3">
+<h3>I - Build &amp; evaluate real deep network</h3>
 <ol style="list-style-type: decimal">
 <li>Build a real deep network with two additional 256-node layers, two additional 128-node layer, and three additional layers 64-node layers. In the end, there should be three layers of each kind, sorted, as before, in descending order of the number of nodes. Take a look at the summary.</li>
 </ol>
@@ -426,8 +426,8 @@ summary(realdeepnet)</code></pre>
 <li><p>Not all too much happening. Though, both fitting and prediction performance went up by another notch. This is again characteristic of neural networks. To really max out on performance, many epochs of training will often be necessary. However, at the same time risks to give the model opportunity to overfit the data.</p></li>
 </ol>
 </div>
-<div id="i---battling-overfitting" class="section level3">
-<h3>I - Battling overfitting</h3>
+<div id="j---battling-overfitting" class="section level3">
+<h3>J - Battling overfitting</h3>
 <ol style="list-style-type: decimal">
 <li>To begin with create a <code>crazycomplexnet</code> which should have twice as many nodes in the first hidden layer than there are input nodes. Add as many hidden layers as you like and then run the network for <code>20</code> epochs for a batch size of <code>100</code> and evaluate the network’s performance.</li>
 </ol>
