@@ -3,6 +3,8 @@ library(keras)
 source("2_Code/helper.R")
 
 
+  
+
 # read data set
 fashion <- readRDS(file = "1_Data/fashion.RDS")
 

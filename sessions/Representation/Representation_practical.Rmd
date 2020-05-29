@@ -255,17 +255,16 @@ embedding <- embedding[order(items), ]
 # calculate cosine similarities
 fashion_cosines <- cosine(embedding)
 
-plot_cosine(fashion_cosines)
 ```
 
-3. Now use the `plot_cosine` function (also from the `helper_2.R` file) to plot the matrix of cosine values. The categories `0` to `9` go from top to bottom and from left to right. Light grey values indicate high cosine similarity, darker ones low cosine similarity. Try to make sense of the plot. 
+2. Now use the `plot_cosine` function (also from the `helper_2.R` file) to plot the matrix of cosine values. The categories `0` to `9` go from top to bottom and from left to right. Light grey values indicate high cosine similarity, darker ones low cosine similarity. Try to make sense of the plot. 
 
 ```{r, echo = TRUE}
 # Plot cosine similarities
 plot_cosine(fashion_cosines)
 ```
 
-4. The cosine similarity plot shows several interesting patterns. First, items of one item type, as should be, are consistently more similar to themselves than to other item type. This can be gleaned from fact that the rectangles in the diagonal are always lightest in their respective columns. Second, some items types are closer to each other than others are. This can be gleaned from the fact that there are other light rectangle off the diagonal. Use the code below to visualize this information in a more intuitive way using multi-dimensional scaling. Yes, there is a function ready, `plot_cosine_mds()`. Try to make sense of the plot.    
+3. The cosine similarity plot shows several interesting patterns. First, items of one item type, as should be, are consistently more similar to themselves than to other item type. This can be gleaned from fact that the rectangles in the diagonal are always lightest in their respective columns. Second, some items types are closer to each other than others are. This can be gleaned from the fact that there are other light rectangle off the diagonal. Use the code below to visualize this information in a more intuitive way using multi-dimensional scaling. Yes, there is a function ready, `plot_cosine_mds()`. Try to make sense of the plot.    
 
 
 ```{r, echo = TRUE}
