@@ -200,6 +200,16 @@ digit[[2]][[2]] = digit[[2]][[2]][1:n]
 
 ---
 
+# Visualization
+
+
+<div align="center">
+<iframe width="800" height="450" src="https://www.youtube.com/watch?v=3JQ3hYko51Y?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+
+---
+
 .pull-left4[
 
 # Pixel embeddings
