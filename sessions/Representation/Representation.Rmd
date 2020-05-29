@@ -200,11 +200,8 @@ digit[[2]][[2]] = digit[[2]][[2]][1:n]
 
 ---
 
-# Visualization
-
-
-<div align="center">
-<iframe width="800" height="450" src="https://www.youtube.com/embed/3JQ3hYko51Y?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div align="center" style="padding-top:30px">
+<iframe width="1200" height="570" src="https://www.youtube.com/embed/3JQ3hYko51Y?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 
